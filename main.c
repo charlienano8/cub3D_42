@@ -20,8 +20,8 @@ char	**generate_test_map(void)
 	if (!map)
 		return (NULL);
 	map[0] = "111111";
-	map[1] = "100001";
-	map[2] = "101001";
+	map[1] = "101011";
+	map[2] = "100001";
 	map[3] = "100001";
 	map[4] = "111111";
 	map[5] = NULL;
@@ -50,6 +50,7 @@ int	main(void)
 									&game.img.endian);
 	mlx_hook(game.win, 17, 0, (int (*)())(void *)close_game, &game);
 	mlx_hook(game.win, 2, 1L<<0, (int (*)())(void *)handle_keypress, &game);
+	mlx_loop_hook(game.mlx, (int (*)())(void *)render_next_frame, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }

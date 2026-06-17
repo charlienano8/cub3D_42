@@ -28,9 +28,19 @@ int	close_game(t_game *game)
 int	handle_keypress(int keycode, void *param)
 {
 	t_game	*game;
+	double	move_speed;
 
 	game = (t_game *)param;
+	move_speed = 0.1;
 	if (keycode == 65307)
 		close_game(game);
+	if (keycode == 119)
+		game->player_y -= move_speed;
+	if (keycode == 115)
+		game->player_y += move_speed;
+	if (keycode == 97)
+		game->player_x -= move_speed;
+	if (keycode == 100)
+		game->player_x += move_speed;
 	return (0);
 }
