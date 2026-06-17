@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/06/17 15:04:21 by makui            ###   ########.fr       */
+/*   Updated: 2026/06/17 17:42:19 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # include <stdio.h>
 
 // For minilibx functions
-# include "minilibx-linux/mlx.h"
+# include "mlx.h"
 
 typedef struct s_img
 {

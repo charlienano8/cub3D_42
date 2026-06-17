@@ -1,47 +1,83 @@
-NAME = cub3D
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
+#    Updated: 2026/06/17 18:13:53 by aborda           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRC_DIR = src
-OBJ_DIR = obj
-INC_DIR = include
-LIBFT_DIR = libft
+# Colors
+RED			= \033[0;31m
+GREEN		= \033[0;32m
+YELLOW		= \033[0;33m
+BLUE		= \033[0;34m
+MAGENTA		= \033[0;35m
+CYAN		= \033[0;36m
+RESET		= \033[0m
 
-iasdSRCS = main.c events.c\
+# Project
+NAME		= cub3d
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
+INCLUDES	= -Iincludes -I./libft/includes -I$(MLX_DIR)
 
-SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))
+# Minilibx
+MLX_DIR		= minilibx-linux
+MLX_FLAGS 	= -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
-OBJS = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRCS))
+# Library
+LIBFT 		= ./libft/libft.a
+MLX_LIB 	= $(MLX_DIR)/libmlx.a
 
-LIBFT = $(LIBFT_DIR)/libft.a
+# Directories
+OBJ_DIR		= objs
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror -Iinclude -I$(LIBFT_DIR)/include
+# VPATH
+VPATH 		= srcs
 
-RM = rm -rf
+# Sources
+SRCS		= main.c \
+			  draw.c \
+			  events.c
 
+# Objects
+OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)
+
+# Rules
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	make -C minilibx-linux
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) minilibx-linux/libmlx_Linux.a -lXext -lX11 -o $(NAME)
-
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR):
-	mkdir -p $(OBJ_DIR)
-
 $(LIBFT):
-	make -C $(LIBFT_DIR)
+	@make -C libft
+
+$(MLX_LIB):
+	@make -C $(MLX_DIR)
+
+$(OBJ_DIR)/%.o: %.c
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@printf "$(GREEN)✓$(RESET) Compiled: $(CYAN)$<$(RESET)\n"
+
+$(NAME): $(LIBFT) $(MLX_LIB) $(OBJS)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX_LIB) $(MLX_FLAGS) -o $(NAME)
+	@printf "$(GREEN)==========================================$(RESET)\n"
+	@printf "$(GREEN)✓ $(NAME) created successfully!$(RESET)\n"
+	@printf "$(GREEN)==========================================$(RESET)\n"
 
 clean:
-	$(RM) $(OBJ_DIR)
-	make -C $(LIBFT_DIR) clean
-	make clean -C minilibx-linux
+	@make clean -C libft
+	@make clean -C $(MLX_DIR)
+	@rm -rf $(OBJ_DIR)
+	@printf "$(YELLOW)✓ Object files removed$(RESET)\n"
 
 fclean: clean
-	$(RM) $(NAME) so_long
-	make -C $(LIBFT_DIR) fclean
-	$(RM) minilibx-linux/libmlx_Linux.a
+	@make fclean -C libft
+	@make clean -C $(MLX_DIR)
+	@rm -f $(NAME)
+	@printf "$(YELLOW)✓ $(NAME) removed$(RESET)\n"
 
 re: fclean all
 
