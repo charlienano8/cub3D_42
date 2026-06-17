@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/06/17 18:13:53 by aborda           ###   ########.fr        #
+#    Updated: 2026/06/17 21:00:29 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,10 @@ all: $(NAME)
 $(LIBFT):
 	@make -C libft
 
-$(MLX_LIB):
+$(MLX_DIR):
+	@./add_minilibx.sh
+
+$(MLX_LIB): | $(MLX_DIR)
 	@make -C $(MLX_DIR)
 
 $(OBJ_DIR)/%.o: %.c
