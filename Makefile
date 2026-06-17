@@ -5,7 +5,7 @@ OBJ_DIR = obj
 INC_DIR = include
 LIBFT_DIR = libft
 
-SRCS = main.c events.c\
+iasdSRCS = main.c events.c\
 
 SRCS := $(addprefix $(SRC_DIR)/,$(SRCS))
 
