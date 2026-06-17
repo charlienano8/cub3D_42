@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/06/09 10:55:16 by makui            ###   ########.fr       */
+/*   Updated: 2026/06/17 15:04:21 by makui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@
 // For minilibx functions
 # include "minilibx-linux/mlx.h"
 
+typedef struct s_img
+{
+	void	*img_ptr;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_img;
+
 typedef struct s_game
 {
 	void	*mlx;
@@ -32,9 +41,13 @@ typedef struct s_game
 	char	**map;
 	double	player_x;
 	double	player_y;
+	double	dir_x;
+	double	dir_y;
+	t_img	img;
 }	t_game;
 
-int	close_game(t_game *game);
-int	handle_keypress(int keycode, void *param);
+int		close_game(t_game *game);
+int		handle_keypress(int keycode, void *param);
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 
 #endif

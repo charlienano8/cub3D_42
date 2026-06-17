@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   events.c                                           :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/09 11:22:32 by makui             #+#    #+#             */
-/*   Updated: 2026/06/17 15:04:19 by makui            ###   ########.fr       */
+/*   Created: 2026/06/17 14:57:24 by makui             #+#    #+#             */
+/*   Updated: 2026/06/17 15:04:24 by makui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	close_game(t_game *game)
+void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
-	if (game->img.img_ptr)
-		mlx_destroy_image(game->mlx, game->img.img_ptr);
-	if (game->win)
-		mlx_destroy_window(game->mlx, game->win);
-	if (game->map)
-		free(game->map);
-	printf("Game closed\n");
-	exit(0);
-	return (0);
-}
+	char	*dst;
 
-int	handle_keypress(int keycode, void *param)
-{
-	t_game	*game;
-
-	game = (t_game *)param;
-	if (keycode == 65307)
-		close_game(game);
-	return (0);
+	if (x < 0 || x >= 640 || y < 0 || y >= 480)
+		return ;
+	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
 }
