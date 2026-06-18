@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/06/17 21:00:29 by aborda           ###   ########.fr        #
+#    Updated: 2026/06/18 13:33:23 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,12 +37,13 @@ MLX_LIB 	= $(MLX_DIR)/libmlx.a
 OBJ_DIR		= objs
 
 # VPATH
-VPATH 		= srcs
+VPATH 		= srcs:srcs/messages
 
 # Sources
-SRCS		= main.c \
+SRCS		= main_antoine.c \
 			  draw.c \
-			  events.c
+			  events.c \
+			  messages.c
 
 # Objects
 OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)

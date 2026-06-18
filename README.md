@@ -6,7 +6,7 @@
 
 ## Description
 
-BlaBla
+Créer une représentation 3D "réaliste" de l'intérieur d'un labyrinthe en vue première personne, par raycasting, avec la miniLibX obligatoire.
 
 ### Objectifs
 
