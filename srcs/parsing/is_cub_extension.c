@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   messages.h                                         :+:      :+:    :+:   */
+/*   is_cub_extension.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 13:23:22 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/18 16:11:33 by aborda           ###   ########.fr       */
+/*   Created: 2026/06/18 15:54:32 by aborda            #+#    #+#             */
+/*   Updated: 2026/06/18 16:19:32 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MESSAGES_H
-# define MESSAGES_H
+#include "libft.h"
 
-typedef enum e_msg
+int	is_cub_extension(char *str)
 {
-	ERR_BASE,
-	ERR_AV,
-	ERR_CUB_EXTENSION,
-	ERR_MALLOC
-}	t_msg;
+	char	*ptr;
 
-int	msg(t_msg msg_code);
-
-#endif
+	ptr = ft_strrchr(str, '.');
+	if ((ft_strncmp(ptr, ".cub", 4)) == 0)
+		return (1);
+	return (0);
+}

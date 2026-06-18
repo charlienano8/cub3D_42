@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/06/18 13:33:23 by aborda           ###   ########.fr        #
+#    Updated: 2026/06/18 16:00:29 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,10 +37,11 @@ MLX_LIB 	= $(MLX_DIR)/libmlx.a
 OBJ_DIR		= objs
 
 # VPATH
-VPATH 		= srcs:srcs/messages
+VPATH 		= srcs:srcs/messages:srcs/parsing
 
 # Sources
 SRCS		= main_antoine.c \
+			  is_cub_extension.c \
 			  draw.c \
 			  events.c \
 			  messages.c

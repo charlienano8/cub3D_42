@@ -6,26 +6,19 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 11:32:53 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/18 15:23:31 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/18 16:17:29 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "parsing.h"
 #include "messages.h"
+#include <stdio.h>
 
 int	main(int ac, char **av)
 {
-	(void) av;
-
 	if (ac != 2)
 		return (msg(ERR_AV));
-
-	char *ptr;
-
-	ptr = ft_strrchr(av[1], '.');
-
-
-
-
-
+	if (!is_cub_extension(av[1]))
+		return (msg(ERR_CUB_EXTENSION));
 	return (0);
 }
