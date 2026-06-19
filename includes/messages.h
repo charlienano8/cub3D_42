@@ -18,7 +18,8 @@ typedef enum e_msg
 	ERR_BASE,
 	ERR_AV,
 	ERR_CUB_EXTENSION,
-	ERR_MALLOC
+	ERR_MALLOC,
+	ERR_MLX
 }	t_msg;
 
 int	msg(t_msg msg_code);

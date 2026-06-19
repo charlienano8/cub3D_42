@@ -21,7 +21,7 @@ RESET		= \033[0m
 
 # Project
 NAME		= cub3d
-CC			= gcc
+CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 INCLUDES	= -Iincludes -I./libft/includes -I$(MLX_DIR)
 
@@ -82,6 +82,7 @@ fclean: clean
 	@make fclean -C libft
 	@make clean -C $(MLX_DIR)
 	@rm -f $(NAME)
+	@rm -rf $(MLX_DIR)
 	@printf "$(YELLOW)✓ $(NAME) removed$(RESET)\n"
 
 re: fclean all

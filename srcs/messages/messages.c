@@ -23,5 +23,7 @@ int	msg(t_msg msg_code)
 		ft_putstr_fd("Error, file is not a .cub\n", 2);
 	else if (msg_code == ERR_MALLOC)
 		ft_putstr_fd("Error, malloc failed\n", 2);
+	else if (msg_code == ERR_MLX)
+		ft_putstr_fd("Error, mlx failed\n", 2);
 	return (1);
 }

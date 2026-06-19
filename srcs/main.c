@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "messages.h"
 
 char	**generate_test_map(void)
 {
@@ -37,13 +38,13 @@ int	main(void)
 	game.player_y = 2.5;
 	game.mlx = mlx_init();
 	if (!game.mlx)
-		return (1);
+		return (msg(ERR_MLX));
 	game.win = mlx_new_window(game.mlx, 640, 480, "cub3D by aborda and makui");
 	if (!game.win)
-		return (1);
+		return (msg(ERR_MLX));
 	game.img.img_ptr = mlx_new_image(game.mlx, 640, 480);
 	if (!game.img.img_ptr)
-		return (1);
+		return (msg(ERR_MLX));
 	game.img.addr = mlx_get_data_addr(game.img.img_ptr,
 									&game.img.bits_per_pixel,
 									&game.img.line_length,
