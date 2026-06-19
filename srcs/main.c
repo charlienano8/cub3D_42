@@ -21,8 +21,8 @@ char	**generate_test_map(void)
 	if (!map)
 		return (NULL);
 	map[0] = "111111";
-	map[1] = "101011";
-	map[2] = "100001";
+	map[1] = "100001";
+	map[2] = "100101";
 	map[3] = "100001";
 	map[4] = "111111";
 	map[5] = NULL;

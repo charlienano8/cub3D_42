@@ -40,7 +40,7 @@ OBJ_DIR		= objs
 VPATH 		= srcs:srcs/messages:srcs/parsing
 
 # Sources
-SRCS		= main_antoine.c \
+SRCS		= main.c \
 			  is_cub_extension.c \
 			  draw.c \
 			  events.c \

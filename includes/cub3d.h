@@ -25,6 +25,8 @@
 // For minilibx functions
 # include "mlx.h"
 
+# define TILE_SIZE 16
+
 typedef struct s_img
 {
 	void	*img_ptr;

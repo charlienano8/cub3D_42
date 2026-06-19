@@ -40,12 +40,11 @@ void	draw_square(t_game *game, int x_start, int y_start, int size, int color)
 	}
 }
 
-#define TILE_SIZE 16
-
 int	render_next_frame(t_game *game)
 {
 	int	x;
 	int	y;
+	int	player_size;
 
 	y = 0;
 	while (game->map[y])
@@ -61,7 +60,8 @@ int	render_next_frame(t_game *game)
 		}
 		y++;
 	}
-	draw_square(game, game->player_x * TILE_SIZE - 3, game->player_y * TILE_SIZE - 3, 6, 0xFF0000);
+	player_size = TILE_SIZE / 3;
+	draw_square(game, game->player_x * TILE_SIZE - (player_size / 2), game->player_y * TILE_SIZE - (player_size / 2), player_size, 0xFF0000);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (0);
 }
