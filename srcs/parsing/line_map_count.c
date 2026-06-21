@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 10:26:18 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/21 12:38:09 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 13:47:40 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ int	line_map_count(char *file)
 	current_line = get_next_line(fd);
 	while (current_line != NULL)
 	{
-		printf("LIGNE = %s", current_line);
 		if (is_map_line(current_line))
 			count++;
-		printf("COUNT = %d\n", count);
 		free(current_line);
 		current_line = get_next_line(fd);
 	}
