@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/06/21 17:33:35 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 17:41:02 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <stdio.h>
 
 /* Project Headers */
-#include "libft.h"
-#include "messages.h"
+# include "libft.h"
+# include "messages.h"
 
 /* Minilibx */
 # include "mlx.h"
@@ -51,8 +51,7 @@ typedef struct s_game
 
 /* Parsing */
 int		create_map(t_game *game);
-int		fill_map(t_game  *game, char *file);
-
+int		fill_map(t_game *game, char *file);
 
 /* Game */
 int		init_game(char *file);

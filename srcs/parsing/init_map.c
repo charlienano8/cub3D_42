@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:52:07 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/21 17:34:56 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 17:54:06 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,28 @@ int	create_map(t_game *game)
 		return (msg(ERR_MALLOC));
 	game->map = map;
 	return (0);
-} 
+}
 
-int	fill_map(t_game  *game, char *file)
+static int	store_map_line(char *current_line, t_game *game, int fd, int i)
+{
+	char	*trimed_current_line;
+
+	trimed_current_line = ft_strtrim(current_line, "\n");
+	if (trimed_current_line == NULL)
+	{
+		game->map[i] = 0;
+		msg(ERR_MALLOC);
+		free(current_line);
+		close(fd);
+		return (1);
+	}
+	game->map[i] = trimed_current_line;
+	return (0);
+}
+
+int	fill_map(t_game *game, char *file)
 {
 	char	*current_line;
-	char	*trimed_current_line;
 	int		fd;
 	int		i;
 
@@ -39,16 +55,8 @@ int	fill_map(t_game  *game, char *file)
 	{
 		if (is_map_line(current_line))
 		{
-			trimed_current_line = ft_strtrim(current_line, "\n");
-			if (trimed_current_line == NULL)
-			{
-				game->map[i] = 0;
-				msg(ERR_MALLOC);
-				free(current_line);
-				close(fd);
+			if (store_map_line(current_line, game, fd, i) == 1)
 				return (1);
-			}
-			game->map[i] = trimed_current_line;
 			i++;
 		}
 		free(current_line);
