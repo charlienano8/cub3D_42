@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/06/21 17:04:41 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 17:25:33 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ typedef struct s_game
 	void	*mlx;
 	void	*win;
 	char	**map;
+	int		line_map_nb;
 	double	player_x;
 	double	player_y;
 	double	dir_x;
@@ -52,7 +53,9 @@ typedef struct s_game
 int		create_map(t_game *game, char *file);
 int		fill_map(t_game  *game, char *file);
 
+
 /* Game */
+int		init_game(char *file);
 int		close_game(t_game *game);
 int		handle_keypress(int keycode, void *param);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
