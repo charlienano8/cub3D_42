@@ -1,38 +1,67 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   line_map_count.c                                   :+:      :+:    :+:   */
+/*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/21 10:26:18 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/21 15:51:58 by aborda           ###   ########.fr       */
+/*   Created: 2026/06/21 13:52:07 by aborda            #+#    #+#             */
+/*   Updated: 2026/06/21 15:50:01 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	line_map_count(char *file)
+int	create_map(t_game *game, char *file)
+{
+	char	**map;
+	int		count;
+
+	count = line_map_count(file);
+	if (count == -1)
+		return (msg(ERR_FD));
+	map = malloc(sizeof(char *) * (count + 1));
+	if (map == NULL)
+		return (msg(ERR_MALLOC));
+	game->map = map;
+	return (0);
+} 
+
+int	fill_map(t_game  *game, char *file)
 {
 	char	*current_line;
+	char	*trimed_current_line;
 	int		fd;
-	int		count;
+	int		i;
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
 		msg(ERR_FD);
-		return (-1);
+		return (1);
 	}
-	count = 0;
 	current_line = get_next_line(fd);
+	i = 0;
 	while (current_line != NULL)
 	{
 		if (is_map_line(current_line))
-			count++;
+		{
+			trimed_current_line = ft_strtrim(current_line, "\n");
+			if (trimed_current_line == NULL)
+			{
+				game->map[i] = 0;
+				msg(ERR_MALLOC);
+				free(current_line);
+				close(fd);
+				return (1);
+			}
+			game->map[i] = trimed_current_line;
+			i++;
+		}
 		free(current_line);
 		current_line = get_next_line(fd);
 	}
+	game->map[i] = 0;
 	close(fd);
-	return (count);
+	return (0);
 }

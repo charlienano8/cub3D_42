@@ -6,13 +6,11 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 11:32:53 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/21 13:48:01 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 15:50:16 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
-#include "messages.h"
-#include <stdio.h>
+#include "cub3d.h"
 
 int	main(int ac, char **av)
 {

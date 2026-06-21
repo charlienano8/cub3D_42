@@ -6,11 +6,11 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 11:33:17 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/21 12:39:27 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 15:51:54 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
 int	is_map_line(char *line)
 {

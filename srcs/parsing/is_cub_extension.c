@@ -6,11 +6,11 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 15:54:32 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/18 16:40:53 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 15:51:09 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
 int	is_cub_extension(char *str)
 {

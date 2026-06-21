@@ -6,12 +6,11 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:04:49 by makui             #+#    #+#             */
-/*   Updated: 2026/06/09 11:22:18 by makui            ###   ########.fr       */
+/*   Updated: 2026/06/21 15:52:07 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-#include "messages.h"
 
 char	**generate_test_map(void)
 {
