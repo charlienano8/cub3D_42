@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 12:08:26 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/18 16:18:20 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 11:26:42 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int	msg(t_msg msg_code)
 		ft_putstr_fd("Error, file is not a .cub\n", 2);
 	else if (msg_code == ERR_MALLOC)
 		ft_putstr_fd("Error, malloc failed\n", 2);
+	else if (msg_code == ERR_FD)
+		ft_putstr_fd("Error, file open failed\n", 2);
+	else if (msg_code == ERR_GNL)
+		ft_putstr_fd("Error, GNL failed\n", 2);
 	else if (msg_code == ERR_MLX)
 		ft_putstr_fd("Error, mlx failed\n", 2);
 	return (1);

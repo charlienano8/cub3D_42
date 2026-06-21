@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/06/18 16:00:29 by aborda           ###   ########.fr        #
+#    Updated: 2026/06/21 12:14:30 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,10 @@ OBJ_DIR		= objs
 VPATH 		= srcs:srcs/messages:srcs/parsing
 
 # Sources
-SRCS		= main.c \
+SRCS		= main_antoine.c \
 			  is_cub_extension.c \
+			  line_map_count.c \
+			  is_map_line.c \
 			  draw.c \
 			  events.c \
 			  messages.c

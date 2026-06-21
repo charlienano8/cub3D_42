@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:23:22 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/18 16:11:33 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 11:08:33 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef enum e_msg
 	ERR_AV,
 	ERR_CUB_EXTENSION,
 	ERR_MALLOC,
+	ERR_FD,
+	ERR_GNL,
 	ERR_MLX
 }	t_msg;
 
