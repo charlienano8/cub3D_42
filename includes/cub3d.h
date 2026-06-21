@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/06/21 17:25:33 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 17:33:35 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_game
 }	t_game;
 
 /* Parsing */
-int		create_map(t_game *game, char *file);
+int		create_map(t_game *game);
 int		fill_map(t_game  *game, char *file);
 
 

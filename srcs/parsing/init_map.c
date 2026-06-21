@@ -6,21 +6,17 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:52:07 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/21 15:50:01 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 17:34:56 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	create_map(t_game *game, char *file)
+int	create_map(t_game *game)
 {
 	char	**map;
-	int		count;
 
-	count = line_map_count(file);
-	if (count == -1)
-		return (msg(ERR_FD));
-	map = malloc(sizeof(char *) * (count + 1));
+	map = malloc(sizeof(char *) * (game->line_map_nb + 1));
 	if (map == NULL)
 		return (msg(ERR_MALLOC));
 	game->map = map;
@@ -36,10 +32,7 @@ int	fill_map(t_game  *game, char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-	{
-		msg(ERR_FD);
-		return (1);
-	}
+		return (msg(ERR_FD));
 	current_line = get_next_line(fd);
 	i = 0;
 	while (current_line != NULL)
