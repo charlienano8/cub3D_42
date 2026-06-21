@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 10:26:18 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/21 17:35:34 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 18:13:11 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	line_map_count(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		return (msg(ERR_FD), -1);
+		return (-1);
 	count = 0;
 	current_line = get_next_line(fd);
 	while (current_line != NULL)
