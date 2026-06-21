@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/06/21 15:40:54 by aborda           ###   ########.fr        #
+#    Updated: 2026/06/21 17:01:40 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,18 +37,26 @@ MLX_LIB 	= $(MLX_DIR)/libmlx.a
 OBJ_DIR		= objs
 
 # VPATH
-VPATH 		= srcs:srcs/game:srcs/messages:srcs/parsing
+VPATH 		= srcs:srcs/game:srcs/messages:srcs/parsing:srcs/utils
 
 # Sources
-SRCS		= main_antoine.c \
-			  is_cub_extension.c \
-			  line_map_count.c \
+SRCS_MAIN	= main_antoine.c \
+			  messages.c \
+
+SRCS_INIT	= init_game.c \
+			  init_map.c
+
+SRCS_UTILS	= is_cub_extension.c \
 			  is_map_line.c \
-			  init_game.c \
-			  init_map.c \
-			  draw.c \
-			  events.c \
-			  messages.c
+			  line_map_count.c
+
+SRCS_GAME 	= draw.c \
+			  events.c
+
+SRCS 		= $(SRCS_MAIN) \
+			  $(SRCS_INIT) \
+			  $(SRCS_UTILS) \
+			  $(SRCS_GAME) \
 
 # Objects
 OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)

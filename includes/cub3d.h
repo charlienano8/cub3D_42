@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/06/21 16:01:56 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 17:04:41 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,19 @@ typedef struct s_game
 }	t_game;
 
 /* Parsing */
-int		is_cub_extension(char *str);
-int		line_map_count(char *file);
-int		is_map_line(char *line);
 int		create_map(t_game *game, char *file);
 int		fill_map(t_game  *game, char *file);
 
-/* game */
+/* Game */
 int		close_game(t_game *game);
 int		handle_keypress(int keycode, void *param);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	draw_square(t_game *game, int x_start, int y_start, int size, int color);
 int		render_next_frame(t_game *game);
+
+/* Utils */
+int		is_cub_extension(char *str);
+int		is_map_line(char *line);
+int		line_map_count(char *file);
 
 #endif
