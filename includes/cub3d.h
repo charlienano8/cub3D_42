@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/06/21 17:41:02 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 18:05:42 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int		create_map(t_game *game);
 int		fill_map(t_game *game, char *file);
 
 /* Game */
-int		init_game(char *file);
+int		init_game(t_game *game, char *file);
 int		close_game(t_game *game);
 int		handle_keypress(int keycode, void *param);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
