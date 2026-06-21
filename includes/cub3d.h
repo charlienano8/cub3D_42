@@ -6,23 +6,23 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/06/21 13:48:38 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/21 16:01:56 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-// For malloc, free and exit
+/* Libraries */
 # include <stdlib.h>
-
-// For write and close
 # include <unistd.h>
-
-// For printf and perror
 # include <stdio.h>
 
-// For minilibx functions
+/* Project Headers */
+#include "libft.h"
+#include "messages.h"
+
+/* Minilibx */
 # include "mlx.h"
 
 # define TILE_SIZE 16
@@ -48,6 +48,14 @@ typedef struct s_game
 	t_img	img;
 }	t_game;
 
+/* Parsing */
+int		is_cub_extension(char *str);
+int		line_map_count(char *file);
+int		is_map_line(char *line);
+int		create_map(t_game *game, char *file);
+int		fill_map(t_game  *game, char *file);
+
+/* game */
 int		close_game(t_game *game);
 int		handle_keypress(int keycode, void *param);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
