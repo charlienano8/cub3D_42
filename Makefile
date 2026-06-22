@@ -40,7 +40,7 @@ OBJ_DIR		= objs
 VPATH 		= srcs:srcs/game:srcs/messages:srcs/parsing:srcs/utils
 
 # Sources
-SRCS_MAIN	= main_antoine.c \
+SRCS_MAIN	= main.c \
 			  messages.c \
 			  create_map.c
 

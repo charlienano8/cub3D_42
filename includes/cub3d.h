@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
+# include <math.h>
 
 /* Project Headers */
 # include "libft.h"
@@ -46,6 +47,8 @@ typedef struct s_game
 	double	player_y;
 	double	dir_x;
 	double	dir_y;
+	double	plane_x;
+	double	plane_y;
 	t_img	img;
 }	t_game;
 

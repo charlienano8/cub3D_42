@@ -46,6 +46,10 @@ int	render_next_frame(t_game *game)
 	int	y;
 	int	player_size;
 
+	int	i;
+	double	line_x;
+	double	line_y;
+
 	y = 0;
 	while (game->map[y])
 	{
@@ -62,6 +66,14 @@ int	render_next_frame(t_game *game)
 	}
 	player_size = TILE_SIZE / 3;
 	draw_square(game, game->player_x * TILE_SIZE - (player_size / 2), game->player_y * TILE_SIZE - (player_size / 2), player_size, 0xFF0000);
+	i = 0;
+	while (i < 15)
+	{
+		line_x = (game->player_x * TILE_SIZE) + (game->dir_x * i);
+		line_y = (game->player_y * TILE_SIZE) + (game->dir_y * i);
+		my_mlx_pixel_put(&game->img, (int)line_x, (int)line_y, 0x00FF00);
+		i++;
+	}
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (0);
 }

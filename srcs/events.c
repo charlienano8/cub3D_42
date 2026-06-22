@@ -28,8 +28,13 @@ int	close_game(t_game *game)
 int	handle_keypress(int keycode, void *param)
 {
 	t_game	*game;
+
 	double	move_speed;
 	double	player_safety_radius;
+
+	double	old_dir_x;
+	double	old_plane_x;
+	double	rot_speed;
 
 	game = (t_game *)param;
 	move_speed = 0.1;
@@ -41,28 +46,60 @@ int	handle_keypress(int keycode, void *param)
 		if (game->map[(int)(game->player_y - move_speed - player_safety_radius)][(int)game->player_x] != '1' &&
 			game->map[(int)(game->player_y - move_speed - player_safety_radius)][(int)(game->player_x + player_safety_radius)] != '1' &&
 			game->map[(int)(game->player_y - move_speed - player_safety_radius)][(int)(game->player_x - player_safety_radius)] != '1')
-			game->player_y -= move_speed;
+		{
+			game->player_x += game->dir_x * move_speed;
+			game->player_y += game->dir_y * move_speed;
+		}
 	}
 	if (keycode == 115)
 	{
 		if (game->map[(int)(game->player_y + move_speed + player_safety_radius)][(int)game->player_x] != '1' &&
 			game->map[(int)(game->player_y + move_speed + player_safety_radius)][(int)(game->player_x + player_safety_radius)] != '1' &&
 			game->map[(int)(game->player_y + move_speed + player_safety_radius)][(int)(game->player_x - player_safety_radius)] != '1')
-			game->player_y += move_speed;
+		{
+			game->player_x -= game->dir_x * move_speed;
+			game->player_y -= game->dir_y * move_speed;
+		}
 	}
 	if (keycode == 97)
 	{
 		if (game->map[(int)game->player_y][(int)(game->player_x - move_speed - player_safety_radius)] != '1' &&
 			game->map[(int)(game->player_y + player_safety_radius)][(int)(game->player_x - move_speed - player_safety_radius)] != '1' &&
 			game->map[(int)(game->player_y - player_safety_radius)][(int)(game->player_x - move_speed - player_safety_radius)] != '1')
-			game->player_x -= move_speed;
+		{
+			game->player_x += game->dir_y * move_speed;
+			game->player_y -= game->dir_x * move_speed;
+		}
+
 	}
 	if (keycode == 100)
 	{
 		if (game->map[(int)game->player_y][(int)(game->player_x + move_speed + player_safety_radius)] != '1' &&
 			game->map[(int)(game->player_y + player_safety_radius)][(int)(game->player_x + move_speed + player_safety_radius)] != '1' &&
 			game->map[(int)(game->player_y - player_safety_radius)][(int)(game->player_x + move_speed + player_safety_radius)] != '1')
-			game->player_x += move_speed;
+		{
+			game->player_x -= game->dir_y * move_speed;
+			game->player_y += game->dir_x * move_speed;
+		}
 	}
+	rot_speed = 0.05;
+	if (keycode == 65363)
+	{
+		old_dir_x = game->dir_x;
+		game->dir_x = game->dir_x * cos(rot_speed) - game->dir_y * sin(rot_speed);
+		game->dir_y = old_dir_x * sin(rot_speed) + game->dir_y * cos(rot_speed);
+		old_plane_x = game->plane_x;
+		game->plane_x = game->plane_x * cos(rot_speed) - game->plane_y * sin(rot_speed);
+		game->plane_y = old_plane_x * sin(rot_speed) + game->plane_y * cos(rot_speed);
+	}
+	if (keycode == 65361)
+	{
+		old_dir_x = game->dir_x;
+		game->dir_x = game->dir_x * cos(-rot_speed) - game->dir_y * sin(-rot_speed);
+		game->dir_y = old_dir_x * sin(-rot_speed) + game->dir_y * cos(-rot_speed);
+		old_plane_x = game->plane_x;
+		game->plane_x = game->plane_x * cos(-rot_speed) - game->plane_y * sin(-rot_speed);
+		game->plane_y = old_plane_x * sin(-rot_speed) + game->plane_y * cos(-rot_speed);
+	} 
 	return (0);
 }
