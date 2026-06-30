@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 09:19:32 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/30 09:05:00 by aborda           ###   ########.fr       */
+/*   Updated: 2026/06/30 09:41:15 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,34 @@ int	is_valid_map_chars(t_game *game)
 		i++;
 	}
 	return (1);
+}
+
+int	is_valid_map_player(t_game *game)
+{
+	int	i;
+	int	j;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (ft_strchr("NSEW", game->map[i][j]) != NULL)
+			{
+				game->player_x = j;
+				game->player_y = i;
+				count++;
+			}
+			j++;
+		}
+		i++;
+	}
+	if (count == 1)
+		return (1);
+	return (0);
 }
 
 int	is_valid_map(void)
