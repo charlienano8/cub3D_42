@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_antoine.c                                     :+:      :+:    :+:   */
+/*   check_map_elements.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 11:32:53 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/30 08:43:29 by aborda           ###   ########.fr       */
+/*   Created: 2026/06/22 09:19:32 by aborda            #+#    #+#             */
+/*   Updated: 2026/06/30 09:05:00 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int ac, char **av)
+int	is_valid_map_chars(t_game *game)
 {
-	t_game	game;
-	int		ret;
+	int	i;
+	int	j;
 
-	if (ac != 2)
-		return (msg(ERR_AV));
-	if (!is_cub_extension(av[1]))
-		return (msg(ERR_CUB_EXTENSION));
-	ret = init_game(&game, av[1]);
-	if (ret != 0)
-		return (ret);
-	ret = is_valid_char(&game);
-	printf("%d\n", ret);
-	return (0);
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (ft_strchr("01NSEW ", game->map[i][j]) == NULL)
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	is_valid_map(void)
+{
+
 }

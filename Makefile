@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/06/22 08:01:14 by aborda           ###   ########.fr        #
+#    Updated: 2026/06/30 08:42:45 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,9 +40,10 @@ OBJ_DIR		= objs
 VPATH 		= srcs:srcs/game:srcs/messages:srcs/parsing:srcs/utils
 
 # Sources
-SRCS_MAIN	= main.c \
+SRCS_MAIN	= main_antoine.c \
 			  messages.c \
-			  create_map.c
+			  create_map.c \
+			  check_map_elements.c
 
 SRCS_UTILS	= is_cub_extension.c \
 			  is_map_line.c \
