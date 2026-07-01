@@ -26,6 +26,8 @@
 /* Minilibx */
 # include "mlx.h"
 
+# define SCREEN_WIDTH 640
+# define SCREEN_HEIGHT 480
 # define TILE_SIZE 16
 
 typedef struct s_img

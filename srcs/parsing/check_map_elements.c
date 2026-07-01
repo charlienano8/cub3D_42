@@ -60,7 +60,7 @@ int	is_valid_map_player(t_game *game)
 	return (0);
 }
 
-int	is_valid_map(void)
-{
-
-}
+// int	is_valid_map(void)
+// {
+//
+// }

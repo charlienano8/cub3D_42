@@ -51,10 +51,10 @@ int	main(void)
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		return (msg(ERR_MLX));
-	game.win = mlx_new_window(game.mlx, 640, 480, "cub3D by aborda and makui");
+	game.win = mlx_new_window(game.mlx, SCREEN_WIDTH, SCREEN_HEIGHT, "cub3D by aborda and makui");
 	if (!game.win)
 		return (msg(ERR_MLX));
-	game.img.img_ptr = mlx_new_image(game.mlx, 640, 480);
+	game.img.img_ptr = mlx_new_image(game.mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
 	if (!game.img.img_ptr)
 		return (msg(ERR_MLX));
 	game.img.addr = mlx_get_data_addr(game.img.img_ptr,
