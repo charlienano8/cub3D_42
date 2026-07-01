@@ -37,10 +37,10 @@ MLX_LIB 	= $(MLX_DIR)/libmlx.a
 OBJ_DIR		= objs
 
 # VPATH
-VPATH 		= srcs:srcs/game:srcs/messages:srcs/parsing:srcs/utils
+VPATH 		= srcs:srcs/game:srcs/messages:srcs/parsing:srcs/utils:srcs/raycasting
 
 # Sources
-SRCS_MAIN	= main_antoine.c \
+SRCS_MAIN	= main.c \
 			  messages.c \
 			  create_map.c \
 			  check_map_elements.c
@@ -53,9 +53,12 @@ SRCS_GAME 	= init_game.c \
 			  draw.c \
 			  events.c
 
+SRCS_RAYCASTING = engine.c
+
 SRCS 		= $(SRCS_MAIN) \
 			  $(SRCS_UTILS) \
 			  $(SRCS_GAME) \
+			  $(SRCS_RAYCASTING) \
 
 # Objects
 OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)

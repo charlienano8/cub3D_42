@@ -54,6 +54,20 @@ typedef struct s_game
 	t_img	img;
 }	t_game;
 
+typedef struct s_ray
+{
+	double	ray_dir_x;
+	double	ray_dir_y;
+	int		map_x;
+	int		map_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
+	int		step_x;
+	int		step_y;
+	double	side_dist_x;
+	double	side_dist_y;
+}	t_ray;
+
 /* Parsing */
 int		create_map(t_game *game);
 int		fill_map(t_game *game, char *file);
