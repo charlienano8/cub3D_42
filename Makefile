@@ -40,7 +40,7 @@ OBJ_DIR		= objs
 VPATH 		= srcs:srcs/game:srcs/messages:srcs/parsing:srcs/utils:srcs/raycasting
 
 # Sources
-SRCS_MAIN	= main.c \
+SRCS_MAIN	= main_antoine.c \
 			  messages.c \
 			  create_map.c \
 			  check_map_elements.c

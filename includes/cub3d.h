@@ -66,6 +66,7 @@ typedef struct s_ray
 	int		step_y;
 	double	side_dist_x;
 	double	side_dist_y;
+	int		side;
 }	t_ray;
 
 /* Parsing */
@@ -80,6 +81,7 @@ int		handle_keypress(int keycode, void *param);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	draw_square(t_game *game, int x_start, int y_start, int size, int color);
 int		render_next_frame(t_game *game);
+int		raycasting_loop(t_game *game);
 
 /* Utils */
 int		is_cub_extension(char *str);

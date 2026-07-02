@@ -63,7 +63,8 @@ int	main(void)
 									&game.img.endian);
 	mlx_hook(game.win, 17, 0, (int (*)())(void *)close_game, &game);
 	mlx_hook(game.win, 2, 1L<<0, (int (*)())(void *)handle_keypress, &game);
-	mlx_loop_hook(game.mlx, (int (*)())(void *)render_next_frame, &game);
+	//mlx_loop_hook(game.mlx, (int (*)())(void *)render_next_frame, &game);
+	mlx_loop_hook(game.mlx, (int (*)())(void *)raycasting_loop, &game);
 	mlx_loop(game.mlx);
 	return (0);
 }
