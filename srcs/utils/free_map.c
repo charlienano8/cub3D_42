@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 12:40:55 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/05 16:11:42 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/05 17:32:16 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	free_map(char **map)
 	int	i;
 
 	i = 0;
+	if (map == NULL)
+		return ;
 	while (map[i])
 	{
 		free(map[i]);

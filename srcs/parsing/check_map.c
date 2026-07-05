@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   messages.h                                         :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 13:23:22 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/05 16:51:01 by aborda           ###   ########.fr       */
+/*   Created: 2026/07/05 16:24:07 by aborda            #+#    #+#             */
+/*   Updated: 2026/07/05 17:03:42 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MESSAGES_H
-# define MESSAGES_H
+#include "cub3d.h"
 
-typedef enum e_msg
+int	check_map(t_game *game)
 {
-	ERR_BASE,
-	ERR_AV,
-	ERR_CUB_EXTENSION,
-	ERR_MALLOC,
-	ERR_FD,
-	ERR_GNL,
-	ERR_MLX,
-	ERR_VALID_MAP_CHARS,
-	ERR_VALID_MAP_PLAYER,
-	ERR_VALID_MAP_CLOSED
-}	t_msg;
-
-int	msg(t_msg msg_code);
-
-#endif
+	if (!is_valid_map_chars(game))
+		return (msg(ERR_VALID_MAP_CHARS));
+	if (!is_valid_map_player(game))
+		return (msg(ERR_VALID_MAP_PLAYER));
+	if (!is_valid_map_closed(game))
+		return (msg(ERR_VALID_MAP_CLOSED));
+	return (0);
+}

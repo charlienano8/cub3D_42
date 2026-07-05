@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 12:08:26 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/21 11:26:42 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/05 16:51:40 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,11 @@ int	msg(t_msg msg_code)
 		ft_putstr_fd("Error, GNL failed\n", 2);
 	else if (msg_code == ERR_MLX)
 		ft_putstr_fd("Error, mlx failed\n", 2);
+	else if (msg_code == ERR_VALID_MAP_CHARS)
+		ft_putstr_fd("Error, map chars invalid\n", 2);
+	else if (msg_code == ERR_VALID_MAP_PLAYER)
+		ft_putstr_fd("Error, map player invalid\n", 2);
+	else if (msg_code == ERR_VALID_MAP_CLOSED)
+		ft_putstr_fd("Error, map not closed\n", 2);
 	return (1);
 }
