@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 11:32:53 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/05 17:32:51 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/05 20:13:04 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	main(int ac, char **av)
 	t_game	game;
 	int		ret;
 
-	game.map = NULL;
 	if (ac != 2)
 		return (msg(ERR_AV));
 	if (!is_cub_extension(av[1]))

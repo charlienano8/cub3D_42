@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/05 17:04:50 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/05 20:10:40 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,13 @@ typedef struct s_img
 	int		endian;
 }	t_img;
 
+typedef struct s_color
+{
+	int		r;
+	int		g;
+	int		b;
+}	t_color;
+
 typedef struct s_game
 {
 	void	*mlx;
@@ -52,6 +59,12 @@ typedef struct s_game
 	double	plane_x;
 	double	plane_y;
 	t_img	img;
+	char	*texture_path_no;
+	char	*texture_path_so;
+	char	*texture_path_we;
+	char	*texture_path_ea;
+	t_color	color_floor;
+	t_color	color_ceil;
 }	t_game;
 
 typedef struct s_ray
