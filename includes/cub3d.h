@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/06/30 08:51:32 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/05 16:09:04 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,10 @@ typedef struct s_ray
 /* Parsing */
 int		create_map(t_game *game);
 int		fill_map(t_game *game, char *file);
+int		flood_fill(t_game *game, char **map_cpy, int player_x, int player_y);
 int		is_valid_map_chars(t_game *game);
+int		is_valid_map_player(t_game *game);
+int		is_valid_map_closed(t_game *game);
 
 /* Game */
 int		init_game(t_game *game, char *file);
@@ -87,5 +90,6 @@ int		raycasting_loop(t_game *game);
 int		is_cub_extension(char *str);
 int		is_map_line(char *line);
 int		line_map_count(char *file);
+void	free_map(char **map);
 
 #endif

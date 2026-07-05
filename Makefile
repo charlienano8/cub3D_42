@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/06/30 08:42:45 by aborda           ###   ########.fr        #
+#    Updated: 2026/07/05 16:10:57 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,13 +41,17 @@ VPATH 		= srcs:srcs/game:srcs/messages:srcs/parsing:srcs/utils:srcs/raycasting
 
 # Sources
 SRCS_MAIN	= main_antoine.c \
-			  messages.c \
-			  create_map.c \
-			  check_map_elements.c
+			  messages.c
+
+SRCS_PARS	= init_map.c \
+			  flood_fill.c \
+			  check_map_elements.c \
+			  check_map_closed.c
 
 SRCS_UTILS	= is_cub_extension.c \
 			  is_map_line.c \
-			  line_map_count.c
+			  line_map_count.c \
+			  free_map.c
 
 SRCS_GAME 	= init_game.c \
 			  draw.c \
@@ -56,6 +60,7 @@ SRCS_GAME 	= init_game.c \
 SRCS_RAYCASTING = engine.c
 
 SRCS 		= $(SRCS_MAIN) \
+			  $(SRCS_PARS) \
 			  $(SRCS_UTILS) \
 			  $(SRCS_GAME) \
 			  $(SRCS_RAYCASTING) \

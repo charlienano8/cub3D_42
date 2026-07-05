@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_antoine.c                                     :+:      :+:    :+:   */
+/*   free_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 11:32:53 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/05 15:05:09 by aborda           ###   ########.fr       */
+/*   Created: 2026/07/05 12:40:55 by aborda            #+#    #+#             */
+/*   Updated: 2026/07/05 16:11:42 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int ac, char **av)
+void	free_map(char **map)
 {
-	t_game	game;
-	int		ret;
+	int	i;
 
-	if (ac != 2)
-		return (msg(ERR_AV));
-	if (!is_cub_extension(av[1]))
-		return (msg(ERR_CUB_EXTENSION));
-	ret = init_game(&game, av[1]);
-	if (ret != 0)
-		return (ret);
-	ret = is_valid_map_chars(&game);
-	printf("is valid map chars = %d\n", ret);
-	return (0);
+	i = 0;
+	while (map[i])
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
 }

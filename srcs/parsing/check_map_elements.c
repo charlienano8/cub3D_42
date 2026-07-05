@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 09:19:32 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/30 09:41:15 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/05 16:00:07 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,3 @@ int	is_valid_map_player(t_game *game)
 		return (1);
 	return (0);
 }
-
-// int	is_valid_map(void)
-// {
-//
-// }
