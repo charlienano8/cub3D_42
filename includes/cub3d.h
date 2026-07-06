@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/05 23:19:53 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/06 11:30:47 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ typedef struct s_ray
 int		create_map(t_game *game);
 int		fill_map(t_game *game, char *file);
 int		init_elements(t_game *game, char *file);
+int		dispatch_elements(t_game *game, char *current_line, int fd);
 int		flood_fill(t_game *game, char **map_cpy, int player_x, int player_y);
 int		is_valid_map_chars(t_game *game);
 int		is_valid_map_player(t_game *game);
