@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 17:09:08 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/05 20:15:23 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/06 10:55:56 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int	init_game(t_game *game, char *file)
 	if (ret != 0)
 		return (ret);
 	ret = fill_map(game, file);
+	if (ret != 0)
+		return (ret);
+	ret = init_elements(game, file);
 	if (ret != 0)
 		return (ret);
 	return (0);
