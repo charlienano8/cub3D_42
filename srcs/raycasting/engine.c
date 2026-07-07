@@ -132,6 +132,5 @@ int	raycasting_loop(t_game *game)
 		draw_wall_column(x, game, &ray);
 		x++;
 	}
-	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
 	return (0);
 }

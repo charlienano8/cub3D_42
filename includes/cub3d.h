@@ -98,7 +98,6 @@ int		init_game(t_game *game, char *file);
 int		close_game(t_game *game);
 int		handle_keypress(int keycode, void *param);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
-void	draw_square(t_game *game, int x_start, int y_start, int size, int color);
 int		render_next_frame(t_game *game);
 int		raycasting_loop(t_game *game);
 
