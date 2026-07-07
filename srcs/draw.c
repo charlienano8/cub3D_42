@@ -19,7 +19,7 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 	if (x < 0 || x >= SCREEN_WIDTH || y < 0 || y >= SCREEN_HEIGHT)
 		return ;
 	dst = img->addr + (y * img->line_length + x * (img->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *)dst = color;
 }
 
 void	draw_square(t_game *game, int x_start, int y_start, int size, int color)
@@ -42,11 +42,10 @@ void	draw_square(t_game *game, int x_start, int y_start, int size, int color)
 
 int	render_next_frame(t_game *game)
 {
-	int	x;
-	int	y;
-	int	player_size;
-
-	int	i;
+	int		x;
+	int		y;
+	int		player_size;
+	int		i;
 	double	line_x;
 	double	line_y;
 
