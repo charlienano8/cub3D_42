@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/22 09:19:32 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/05 16:00:07 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 12:10:09 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	is_valid_map_player(t_game *game)
 			{
 				game->player_x = j;
 				game->player_y = i;
+				game->player_dir = game->map[i][j];
 				count++;
 			}
 			j++;

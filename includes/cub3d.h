@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/08 10:43:48 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 12:09:02 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_game
 	int		line_map_nb;
 	double	player_x;
 	double	player_y;
+	char	player_dir;
 	double	dir_x;
 	double	dir_y;
 	double	plane_x;
