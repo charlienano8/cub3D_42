@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 11:08:55 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 09:38:41 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 10:29:48 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,23 @@ static int	store_color(char *current_line, t_color *colors, int i)
 {
 	colors->r = ft_atoi(&current_line[i]);
 	if (colors->r < 0 || colors->r > 255)
-		return (msg_parse(ERR_ELEMENTS_COLOR));
+		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
 	while (current_line[i] != ',' && current_line[i] != '\0')
 		i++;
 	if (current_line[i] == '\0')
-		return (msg_parse(ERR_ELEMENTS_COLOR));
+		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
 	i++;
 	colors->g = ft_atoi(&current_line[i]);
 	if (colors->g < 0 || colors->g > 255)
-		return (msg_parse(ERR_ELEMENTS_COLOR));
+		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
 	while (current_line[i] != ',' && current_line[i] != '\0')
 		i++;
 	if (current_line[i] == '\0')
-		return (msg_parse(ERR_ELEMENTS_COLOR));
+		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
 	i++;
 	colors->b = ft_atoi(&current_line[i]);
 	if (colors->b < 0 || colors->b > 255)
-		return (msg_parse(ERR_ELEMENTS_COLOR));
+		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
 	return (0);
 }
 

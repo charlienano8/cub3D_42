@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 12:08:26 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 09:34:08 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 10:41:43 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ int	msg_parse(t_msg msg_code)
 		ft_putstr_fd("Error, double key\n", 2);
 	else if (msg_code == ERR_ELEMENTS_MISSING)
 		ft_putstr_fd("Error, elements is missing\n", 2);
-	else if (msg_code == ERR_ELEMENTS_COLOR)
+	else if (msg_code == ERR_ELEMENTS_INVALID_COLOR)
 		ft_putstr_fd("Error, invalid color value\n", 2);
+	else if (msg_code == ERR_ELEMENTS_INVALID_TEXTURE_PATH)
+		ft_putstr_fd("Error, invalid texture path\n", 2);
 	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/07/08 09:06:04 by aborda           ###   ########.fr        #
+#    Updated: 2026/07/08 10:43:23 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ SRCS_MAIN	= main_antoine.c \
 SRCS_PARS	= init_map.c \
 			  init_elements.c \
 			  init_elements_utils.c \
-			  is_check_elements.c \
+			  check_elements.c \
 			  flood_fill.c \
 			  check_map_elements.c \
 			  check_map_closed.c \

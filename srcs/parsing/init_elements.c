@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:48:07 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 09:36:05 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 10:44:46 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	init_elements(t_game *game, char *file)
 		current_line = get_next_line(fd);
 	}
 	close(fd);
-	if (!is_check_elements(game))
-		return (msg_parse(ERR_ELEMENTS_MISSING));
+	if (check_elements(game))
+		return (1);
 	return (0);
 }
