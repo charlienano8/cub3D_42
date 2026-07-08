@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_antoine.c                                     :+:      :+:    :+:   */
+/*   free_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 11:32:53 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 09:08:19 by aborda           ###   ########.fr       */
+/*   Created: 2026/07/05 12:40:55 by aborda            #+#    #+#             */
+/*   Updated: 2026/07/08 09:04:37 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	main(int ac, char **av)
+void	free_game(t_game *game)
 {
-	t_game	game;
-	int		ret;
-
-	if (ac != 2)
-		return (msg(ERR_AV));
-	if (!is_cub_extension(av[1]))
-		return (msg(ERR_CUB_EXTENSION));
-	ret = init_game(&game, av[1]);
-	if (ret != 0)
-		return (free_game(&game), ret);
-	ret = check_map(&game);
-	if (ret != 0)
-		return (free_game(&game), ret);
-	free_map(game.map);
-	return (0);
+	free(game->texture_path_no);
+	free(game->texture_path_so);
+	free(game->texture_path_we);
+	free(game->texture_path_ea);
+	free_map(game->map);
 }

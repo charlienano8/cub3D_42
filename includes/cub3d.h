@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/06 11:51:46 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 09:06:08 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,6 @@ int		is_cub_extension(char *str);
 int		is_map_line(char *line);
 int		line_map_count(char *file);
 void	free_map(char **map);
+void	free_game(t_game *game);
 
 #endif
