@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/08 13:37:12 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 17:14:19 by makui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,5 +110,6 @@ int		is_map_line(char *line);
 int		line_map_count(char *file);
 void	free_map(char **map);
 void	free_game(t_game *game);
+int		rgb_to_int(t_color color);
 
 #endif
