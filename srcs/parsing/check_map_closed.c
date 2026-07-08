@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 15:59:52 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/05 16:08:29 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 09:46:31 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	is_valid_map_closed(t_game *game)
 	{
 		map_cpy[i] = ft_strdup(game->map[i]);
 		if (map_cpy[i] == NULL)
-			return (msg(ERR_MALLOC));
+			return (msg(ERR_MALLOC), free_map(map_cpy));
 		i++;
 	}
 	map_cpy[i] = 0;
@@ -34,7 +34,5 @@ int	is_valid_map_closed(t_game *game)
 	free_map(map_cpy);
 	if (ret != 0)
 		return (0);
-	if (ret == 0)
-		return (1);
-	return (0);
+	return (1);
 }
