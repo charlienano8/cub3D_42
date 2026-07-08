@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/08 12:09:02 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 13:37:12 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int		check_map(t_game *game);
 
 /* Game */
 int		init_game(t_game *game, char *file);
+void	init_cameras(t_game *game);
 int		close_game(t_game *game);
 int		handle_keypress(int keycode, void *param);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);

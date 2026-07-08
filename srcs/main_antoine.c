@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 11:32:53 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 09:42:45 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 15:55:12 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(int ac, char **av)
 	ret = check_map(&game);
 	if (ret != 0)
 		return (free_game(&game), ret);
+	init_cameras(&game);
 	free_game(&game);
 	return (0);
 }
