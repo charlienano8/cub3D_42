@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 11:08:55 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/06 11:28:58 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 09:38:41 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,24 @@ static int	store_texture_line(char *current_line, char **path, int fd, int i)
 static int	store_color(char *current_line, t_color *colors, int i)
 {
 	colors->r = ft_atoi(&current_line[i]);
-	while (current_line[i] != ',')
+	if (colors->r < 0 || colors->r > 255)
+		return (msg_parse(ERR_ELEMENTS_COLOR));
+	while (current_line[i] != ',' && current_line[i] != '\0')
 		i++;
+	if (current_line[i] == '\0')
+		return (msg_parse(ERR_ELEMENTS_COLOR));
 	i++;
 	colors->g = ft_atoi(&current_line[i]);
-	while (current_line[i] != ',')
+	if (colors->g < 0 || colors->g > 255)
+		return (msg_parse(ERR_ELEMENTS_COLOR));
+	while (current_line[i] != ',' && current_line[i] != '\0')
 		i++;
+	if (current_line[i] == '\0')
+		return (msg_parse(ERR_ELEMENTS_COLOR));
 	i++;
 	colors->b = ft_atoi(&current_line[i]);
+	if (colors->b < 0 || colors->b > 255)
+		return (msg_parse(ERR_ELEMENTS_COLOR));
 	return (0);
 }
 
@@ -59,7 +69,7 @@ static int	dispatch_textures(char *current_line, int fd, char *elements,
 			free(current_line);
 			free(*path);
 			close(fd);
-			return (msg(ERR_DOUBLE_KEY));
+			return (msg_parse(ERR_DOUBLE_KEY));
 		}
 		if (store_texture_line(current_line, path, fd, i))
 			return (1);
@@ -80,7 +90,7 @@ static int	dispatch_colors(char *current_line, int fd, char *elements,
 		while (ft_isspace(current_line[i]))
 			i++;
 		if (color->r != -1)
-			return (free(current_line), close(fd), msg(ERR_DOUBLE_KEY));
+			return (free(current_line), close(fd), msg_parse(ERR_DOUBLE_KEY));
 		if (store_color(current_line, color, i))
 			return (1);
 	}

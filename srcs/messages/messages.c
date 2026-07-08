@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 12:08:26 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/06 11:55:58 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/08 09:34:08 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ int	msg(t_msg msg_code)
 		ft_putstr_fd("Error, GNL failed\n", 2);
 	else if (msg_code == ERR_MLX)
 		ft_putstr_fd("Error, mlx failed\n", 2);
-	else if (msg_code == ERR_VALID_MAP_CHARS)
+	return (1);
+}
+
+int	msg_parse(t_msg msg_code)
+{
+	if (msg_code == ERR_VALID_MAP_CHARS)
 		ft_putstr_fd("Error, map chars invalid\n", 2);
 	else if (msg_code == ERR_VALID_MAP_PLAYER)
 		ft_putstr_fd("Error, map player invalid\n", 2);
@@ -38,6 +43,8 @@ int	msg(t_msg msg_code)
 	else if (msg_code == ERR_DOUBLE_KEY)
 		ft_putstr_fd("Error, double key\n", 2);
 	else if (msg_code == ERR_ELEMENTS_MISSING)
-		ft_putstr_fd("Error, elements missing\n", 2);
+		ft_putstr_fd("Error, elements is missing\n", 2);
+	else if (msg_code == ERR_ELEMENTS_COLOR)
+		ft_putstr_fd("Error, invalid color value\n", 2);
 	return (1);
 }
