@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 12:08:26 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/06 08:55:55 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/06 11:55:58 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int	msg(t_msg msg_code)
 		ft_putstr_fd("Error, map not closed\n", 2);
 	else if (msg_code == ERR_DOUBLE_KEY)
 		ft_putstr_fd("Error, double key\n", 2);
+	else if (msg_code == ERR_ELEMENTS_MISSING)
+		ft_putstr_fd("Error, elements missing\n", 2);
 	return (1);
 }

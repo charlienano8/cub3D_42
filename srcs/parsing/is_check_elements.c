@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   messages.h                                         :+:      :+:    :+:   */
+/*   is_check_elements.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 13:23:22 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/06 11:55:03 by aborda           ###   ########.fr       */
+/*   Created: 2026/07/06 11:43:45 by aborda            #+#    #+#             */
+/*   Updated: 2026/07/08 08:27:36 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MESSAGES_H
-# define MESSAGES_H
+#include "cub3d.h"
 
-typedef enum e_msg
+int	is_check_elements(t_game *game)
 {
-	ERR_BASE,
-	ERR_AV,
-	ERR_CUB_EXTENSION,
-	ERR_MALLOC,
-	ERR_FD,
-	ERR_GNL,
-	ERR_MLX,
-	ERR_VALID_MAP_CHARS,
-	ERR_VALID_MAP_PLAYER,
-	ERR_VALID_MAP_CLOSED,
-	ERR_DOUBLE_KEY,
-	ERR_ELEMENTS_MISSING
-}	t_msg;
-
-int	msg(t_msg msg_code);
-
-#endif
+	if (game->texture_path_no == NULL
+		|| game->texture_path_so == NULL
+		|| game->texture_path_we == NULL
+		|| game->texture_path_ea == NULL
+		|| game->color_floor.r == -1
+		|| game->color_ceil.r == -1)
+		return (0);
+	return (1);
+}
