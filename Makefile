@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/07/08 17:15:02 by makui            ###   ########.fr        #
+#    Updated: 2026/07/09 08:02:20 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,8 @@ SRCS_PARS	= init_map.c \
 			  flood_fill.c \
 			  check_map_elements.c \
 			  check_map_closed.c \
-			  check_map.c
+			  check_map.c \
+			  parsing.c
 
 SRCS_UTILS	= is_cub_extension.c \
 			  is_map_line.c \

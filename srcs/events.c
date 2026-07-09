@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:22:32 by makui             #+#    #+#             */
-/*   Updated: 2026/06/17 15:04:19 by makui            ###   ########.fr       */
+/*   Updated: 2026/07/09 08:42:12 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	close_game(t_game *game)
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->map)
-		free(game->map);
+		free_map(game->map);
 	printf("Game closed\n");
 	exit(0);
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_antoine.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
+/*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/18 11:32:53 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 16:51:14 by aborda           ###   ########.fr       */
+/*   Created: 2026/06/09 11:04:49 by makui             #+#    #+#             */
+/*   Updated: 2026/07/09 08:23:34 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,29 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 		return (msg(ERR_AV));
-	if (!is_cub_extension(av[1]))
-		return (msg(ERR_CUB_EXTENSION));
-	ret = init_game(&game, av[1]);
+
+	ret = parsing(&game, av);
 	if (ret != 0)
-		return (free_game(&game), ret);
-	ret = check_map(&game);
-	if (ret != 0)
-		return (free_game(&game), ret);
-	init_cameras(&game);
+		return (1);
+
+	/* MAKUI */
+	game.mlx = mlx_init();
+	if (!game.mlx)
+		return (msg(ERR_MLX));
+	game.win = mlx_new_window(game.mlx, SCREEN_WIDTH, SCREEN_HEIGHT,
+			"cub3D by aborda and makui");
+	if (!game.win)
+		return (msg(ERR_MLX));
+	game.img.img_ptr = mlx_new_image(game.mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
+	if (!game.img.img_ptr)
+		return (msg(ERR_MLX));
+	game.img.addr = mlx_get_data_addr(game.img.img_ptr,
+			&game.img.bits_per_pixel, &game.img.line_length,
+			&game.img.endian);
+	mlx_hook(game.win, 17, 0, (int (*)())(void *)close_game, &game);
+	mlx_hook(game.win, 2, 1L << 0, (int (*)())(void *)handle_keypress, &game);
+	mlx_loop_hook(game.mlx, (int (*)())(void *)render_next_frame, &game);
+	mlx_loop(game.mlx);
 	free_game(&game);
 	return (0);
 }

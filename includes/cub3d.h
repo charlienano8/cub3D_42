@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/08 17:14:19 by makui            ###   ########.fr       */
+/*   Updated: 2026/07/09 08:09:00 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ typedef struct s_ray
 }	t_ray;
 
 /* Parsing */
+int		parsing(t_game *game, char **av);
 int		create_map(t_game *game);
 int		fill_map(t_game *game, char *file);
 int		init_elements(t_game *game, char *file);
