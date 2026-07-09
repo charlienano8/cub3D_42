@@ -6,24 +6,25 @@
 
 ## Description
 
-Créer une représentation 3D "réaliste" de l'intérieur d'un labyrinthe en vue première personne, par raycasting, avec la miniLibX obligatoire.
+**cub3D** is a 3D graphical game engine inspired by the world-famous 90's classic *Wolfenstein 3D*. The goal of this project is to explore the technique of **Raycasting** a mathematical geometry application that simulates a 3D perspective environment from a strictly 2D map grid.
 
 ### Objectifs
 
 - BlaBla
 
-### Fonctionnalites
+### Features
 
-- BlaBla
+**Real-time 3D Raycasting Rendering:** Dynamically projects walls with strict field-of-view (FOV) calculations.
+**Texture Mapping:** Implements independent wall texture loading (North, South, East, West faces) via standard XPM files using the MiniLibX library.
+**Smooth Movement & Interaction:** Supports fluid WSAD keyboard navigation, orientation rotation using the arrow keys.
 
 ---
 
 ## Instructions
 
-### Prerequis
+### Prerequisites
 
-- `gcc`
-- `make`
+Make sure you have the required graphical dependencies installed on your system (`X11` and `MiniLibX`).
 
 ### Cloner le projet
 
