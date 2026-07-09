@@ -32,8 +32,8 @@ int	get_wall_pixel(t_game *game, t_ray *ray, int tex_y, double wall_x)
 
 	tex = select_wall_texture(game, ray);
 	tex_x = (int)(wall_x * 64.0);
-	if ((ray->side == 0 && ray->ray_dir_x > 0)
-		|| (ray->side == 1 && ray->ray_dir_y < 0))
+	if ((ray->side == 0 && ray->ray_dir_x < 0)
+		|| (ray->side == 1 && ray->ray_dir_y > 0))
 		tex_x = 64 - tex_x - 1;
 	if (tex_x < 0 || tex_x >= 64 || tex_y < 0 || tex_y >= 64)
 		return (0);
