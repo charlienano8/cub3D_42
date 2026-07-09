@@ -79,45 +79,6 @@ void	perform_dda(t_game *game, t_ray *ray)
 	}
 }
 
-void	draw_wall_column(int x, t_game *game, t_ray *ray)
-{
-	double	perp_wall_dist;
-	int		line_height;
-	int		draw_start;
-	int		draw_end;
-	int		color;
-	int		y;
-
-	if (ray->side == 0)
-		perp_wall_dist = (ray->side_dist_x - ray->delta_dist_x);
-	else
-		perp_wall_dist = (ray->side_dist_y - ray->delta_dist_y);
-	if (perp_wall_dist <= 0)
-		perp_wall_dist = 0.01;
-	line_height = (int)(SCREEN_HEIGHT / perp_wall_dist);
-	draw_start = -line_height / 2 + SCREEN_HEIGHT / 2;
-	if (draw_start < 0)
-		draw_start = 0;
-	draw_end = line_height / 2 + SCREEN_HEIGHT / 2;
-	if (draw_end >= SCREEN_HEIGHT)
-		draw_end = SCREEN_HEIGHT - 1;
-	if (ray->side == 1)
-		color = 0x555555;
-	else
-		color = 0x999999;
-	y = 0;
-	while (y < SCREEN_HEIGHT)
-	{
-		if (y < draw_start)
-			my_mlx_pixel_put(&(game->img), x, y, 0x3333CC);
-		else if (y >= draw_start && y <= draw_end)
-			my_mlx_pixel_put(&(game->img), x, y, color);
-		else
-			my_mlx_pixel_put(&(game->img), x, y, 0x666666);
-		y++;
-	}
-}
-
 int	raycasting_loop(t_game *game)
 {
 	int		x;

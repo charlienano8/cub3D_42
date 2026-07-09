@@ -29,6 +29,8 @@ int	msg(t_msg msg_code)
 		ft_putstr_fd("Error, GNL failed\n", 2);
 	else if (msg_code == ERR_MLX)
 		ft_putstr_fd("Error, mlx failed\n", 2);
+	else if (msg_code == ERR_XPM_TEXTURES)
+		ft_putstr_fd("Error, Failed to load XPM textures\n", 2);
 	return (1);
 }
 

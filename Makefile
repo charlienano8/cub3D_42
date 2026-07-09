@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/07/09 08:02:20 by aborda           ###   ########.fr        #
+#    Updated: 2026/07/09 08:59:42 by makui            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,14 +58,16 @@ SRCS_UTILS	= is_cub_extension.c \
 			  line_map_count.c \
 			  free_map.c \
 			  free_game.c \
-			  rgb_to_int.c
+			  rgb_to_int.c \
+			  get_wall_pixel.c
 
 SRCS_GAME 	= init_game.c \
 			  init_cameras.c \
 			  draw.c \
 			  events.c
 
-SRCS_RAYCASTING = engine.c
+SRCS_RAYCASTING = engine.c \
+				  draw_wall_column.c
 
 SRCS 		= $(SRCS_MAIN) \
 			  $(SRCS_PARS) \

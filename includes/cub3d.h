@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/09 08:09:00 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/09 08:59:09 by makui            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ typedef struct s_game
 	char	*texture_path_so;
 	char	*texture_path_we;
 	char	*texture_path_ea;
+	t_img	tex_no;
+	t_img	tex_so;
+	t_img	tex_we;
+	t_img	tex_ea;
 	t_color	color_floor;
 	t_color	color_ceil;
 }	t_game;
@@ -104,6 +108,7 @@ int		handle_keypress(int keycode, void *param);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
 int		render_next_frame(t_game *game);
 int		raycasting_loop(t_game *game);
+void	draw_wall_column(int x, t_game *game, t_ray *ray);
 
 /* Utils */
 int		is_cub_extension(char *str);
@@ -112,5 +117,6 @@ int		line_map_count(char *file);
 void	free_map(char **map);
 void	free_game(t_game *game);
 int		rgb_to_int(t_color color);
+int		get_wall_pixel(t_game *game, t_ray *ray, int tex_y, double wall_x);
 
 #endif
