@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/07/09 08:59:42 by makui            ###   ########.fr        #
+#    Updated: 2026/07/10 10:57:20 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,7 @@ SRCS_UTILS	= is_cub_extension.c \
 			  free_map.c \
 			  free_game.c \
 			  rgb_to_int.c \
-			  get_wall_pixel.c
+			  get_wall_pixel.c \
 
 SRCS_GAME 	= init_game.c \
 			  init_cameras.c \
