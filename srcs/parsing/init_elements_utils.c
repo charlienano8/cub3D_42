@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 11:08:55 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/09 14:43:40 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/10 11:07:39 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,6 @@ static int	store_texture_line(char *current_line, char **path, int fd, int i)
 
 static int	store_color(char *current_line, t_color *colors, int i)
 {
-	int len;
-	len = colorlen(&current_line[i]);
-	printf("%d\n", len);
 	colors->r = ft_atoi(&current_line[i]);
 	if (colors->r < 0 || colors->r > 255)
 		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
