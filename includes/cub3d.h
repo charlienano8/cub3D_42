@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/12 08:41:28 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/12 11:54:45 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ int		check_elements(t_game *game);
 int		flood_fill(t_game *game, char **map_cpy, int player_x, int player_y);
 int		is_valid_map_chars(t_game *game);
 int		is_valid_map_player(t_game *game);
-int		is_valid_map_closed(t_game *game);
+int		is_map_closed(t_game *game);
 int		check_map(t_game *game);
 
 /* Game */
@@ -118,5 +118,6 @@ void	free_map(char **map);
 void	free_game(t_game *game);
 int		rgb_to_int(t_color color);
 int		get_wall_pixel(t_game *game, t_ray *ray, int tex_y, double wall_x);
+int		is_valid_pos(t_game *game, char **map_cpy, int player_x, int player_y);
 
 #endif

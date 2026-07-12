@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/07/12 09:26:48 by aborda           ###   ########.fr        #
+#    Updated: 2026/07/12 11:41:05 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ SRCS_UTILS	= is_cub_extension.c \
 			  free_game.c \
 			  rgb_to_int.c \
 			  get_wall_pixel.c \
+			  is_valid_pos.c
 
 SRCS_GAME 	= init_game.c \
 			  init_cameras.c \
