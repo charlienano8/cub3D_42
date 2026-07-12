@@ -94,7 +94,6 @@ int		fill_map(t_game *game, char *file);
 int		init_elements(t_game *game, char *file);
 int		dispatch_elements(t_game *game, char *current_line);
 int		check_elements(t_game *game);
-int		flood_fill(t_game *game, char **map_cpy, int player_x, int player_y);
 int		is_valid_map_chars(t_game *game);
 int		is_valid_map_player(t_game *game);
 int		is_map_closed(t_game *game);

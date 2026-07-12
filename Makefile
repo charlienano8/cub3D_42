@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/07/12 11:41:05 by aborda           ###   ########.fr        #
+#    Updated: 2026/07/12 20:50:00 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,8 @@ SRCS_PARS	= init_map.c \
 			  init_elements.c \
 			  init_elements_utils.c \
 			  check_elements.c \
-			  flood_fill.c \
 			  check_map_elements.c \
-			  check_map_closed.c \
+			  is_map_closed.c \
 			  check_map.c \
 			  parsing.c
 
