@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/05 22:48:07 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 14:36:44 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/12 08:47:58 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@ int	init_elements(t_game *game, char *file)
 	while (current_line != NULL)
 	{
 		if (!is_map_line(current_line))
-			if (dispatch_elements(game, current_line, fd))
+		{
+			if (dispatch_elements(game, current_line))
+			{
+				free(current_line);
+				close(fd);
 				return (1);
+			}
+		}
 		free(current_line);
 		current_line = get_next_line(fd);
 	}

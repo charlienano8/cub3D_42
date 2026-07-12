@@ -6,24 +6,19 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 11:08:55 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/12 08:24:11 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/12 08:45:57 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-static int	store_texture_line(char *current_line, char **path, int fd, int i)
+static int	store_texture_line(char *current_line, char **path, int i)
 {
 	char	*trimed_current_line;
 
 	trimed_current_line = ft_strtrim(current_line + i, "\n ");
 	if (trimed_current_line == NULL)
-	{
-		msg(ERR_MALLOC);
-		free(current_line);
-		close(fd);
-		return (1);
-	}
+		return (msg(ERR_MALLOC));
 	*path = trimed_current_line;
 	return (0);
 }
@@ -52,7 +47,7 @@ static int	store_color(char *current_line, t_color *colors, int i)
 	return (0);
 }
 
-static int	dispatch_textures(char *current_line, int fd, char *elements,
+static int	dispatch_textures(char *current_line, char *elements,
 		char **path)
 {
 	int	i;
@@ -66,18 +61,17 @@ static int	dispatch_textures(char *current_line, int fd, char *elements,
 			i++;
 		if (*path != NULL)
 		{
-			free(current_line);
 			free(*path);
-			close(fd);
+			*path = NULL;
 			return (msg_parse(ERR_DOUBLE_KEY));
 		}
-		if (store_texture_line(current_line, path, fd, i))
+		if (store_texture_line(current_line, path, i))
 			return (1);
 	}
 	return (0);
 }
 
-static int	dispatch_colors(char *current_line, int fd, char *elements,
+static int	dispatch_colors(char *current_line, char *elements,
 		t_color *color)
 {
 	int	i;
@@ -90,26 +84,26 @@ static int	dispatch_colors(char *current_line, int fd, char *elements,
 		while (ft_isspace(current_line[i]))
 			i++;
 		if (color->r != -1)
-			return (free(current_line), close(fd), msg_parse(ERR_DOUBLE_KEY));
+			return (msg_parse(ERR_DOUBLE_KEY));
 		if (store_color(current_line, color, i))
 			return (1);
 	}
 	return (0);
 }
 
-int	dispatch_elements(t_game *game, char *current_line, int fd)
+int	dispatch_elements(t_game *game, char *current_line)
 {
-	if (dispatch_textures(current_line, fd, "NO", &game->texture_path_no))
+	if (dispatch_textures(current_line, "NO", &game->texture_path_no))
 		return (1);
-	if (dispatch_textures(current_line, fd, "SO", &game->texture_path_so))
+	if (dispatch_textures(current_line, "SO", &game->texture_path_so))
 		return (1);
-	if (dispatch_textures(current_line, fd, "WE", &game->texture_path_we))
+	if (dispatch_textures(current_line, "WE", &game->texture_path_we))
 		return (1);
-	if (dispatch_textures(current_line, fd, "EA", &game->texture_path_ea))
+	if (dispatch_textures(current_line, "EA", &game->texture_path_ea))
 		return (1);
-	if (dispatch_colors(current_line, fd, "F", &game->color_floor))
+	if (dispatch_colors(current_line, "F", &game->color_floor))
 		return (1);
-	if (dispatch_colors(current_line, fd, "C", &game->color_ceil))
+	if (dispatch_colors(current_line, "C", &game->color_ceil))
 		return (1);
 	return (0);
 }
