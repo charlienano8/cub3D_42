@@ -46,6 +46,14 @@ static int	store_map_line(char *current_line, t_game *game, int fd, int i)
 	return (0);
 }
 
+static int	map_end_error(t_game *game, char *current_line, int fd, int i)
+{
+	game->map[i] = 0;
+	free(current_line);
+	close(fd);
+	return (msg_parse(ERR_VALID_MAP_END));
+}
+
 int	fill_map(t_game *game, char *file)
 {
 	char	*current_line;
@@ -66,10 +74,7 @@ int	fill_map(t_game *game, char *file)
 			i++;
 		}
 		else if (i > 0)
-		{
-			game->map[i] = 0;
-			return (free(current_line), close(fd), msg_parse(ERR_VALID_MAP_END));
-		}
+			return (map_end_error(game, current_line, fd, i));
 		free(current_line);
 		current_line = get_next_line(fd);
 	}
