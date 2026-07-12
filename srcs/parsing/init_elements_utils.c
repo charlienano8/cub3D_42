@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 11:08:55 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/12 08:45:57 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/12 10:10:54 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,59 @@ static int	store_texture_line(char *current_line, char **path, int i)
 
 static int	store_color(char *current_line, t_color *colors, int i)
 {
-	colors->r = ft_atoi(&current_line[i]);
+	int	result;
+	int	count;
+
+	result = 0;
+	count = 0;
+	while (ft_isdigit(current_line[i]))
+	{
+		result = result * 10 + (current_line[i] - '0');
+		i++;
+		count++;
+		if (count > 3)
+			return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
+	}
+	colors->r = result;
 	if (colors->r < 0 || colors->r > 255)
 		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	while (current_line[i] != ',' && current_line[i] != '\0')
+	if (current_line[i] == ',')
 		i++;
-	if (current_line[i] == '\0')
+	else
 		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	i++;
-	colors->g = ft_atoi(&current_line[i]);
+	result = 0;
+	count = 0;
+	while (ft_isdigit(current_line[i]))
+	{
+		result = result * 10 + (current_line[i] - '0');
+		i++;
+		count++;
+		if (count > 3)
+			return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
+	}
+	colors->g = result;
 	if (colors->g < 0 || colors->g > 255)
 		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	while (current_line[i] != ',' && current_line[i] != '\0')
+	if (current_line[i] == ',')
 		i++;
-	if (current_line[i] == '\0')
+	else
 		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	i++;
-	colors->b = ft_atoi(&current_line[i]);
+	result = 0;
+	count = 0;
+	while (ft_isdigit(current_line[i]))
+	{
+		result = result * 10 + (current_line[i] - '0');
+		i++;
+		count++;
+		if (count > 3)
+			return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
+	}
+	colors->b = result;
 	if (colors->b < 0 || colors->b > 255)
+		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
+	if (current_line[i] == '\n' || current_line[i] == '\0')
+		i++;
+	else
 		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
 	return (0);
 }

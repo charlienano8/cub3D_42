@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/07/10 10:57:20 by aborda           ###   ########.fr        #
+#    Updated: 2026/07/12 09:26:48 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ OBJ_DIR		= objs
 VPATH 		= srcs:srcs/game:srcs/messages:srcs/parsing:srcs/utils:srcs/raycasting
 
 # Sources
-SRCS_MAIN	= main_antoine.c \
+SRCS_MAIN	= main.c \
 			  messages.c
 
 SRCS_PARS	= init_map.c \
