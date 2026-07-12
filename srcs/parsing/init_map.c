@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 13:52:07 by aborda            #+#    #+#             */
-/*   Updated: 2026/06/21 17:54:06 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/12 11:18:25 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ int	fill_map(t_game *game, char *file)
 			if (store_map_line(current_line, game, fd, i) == 1)
 				return (1);
 			i++;
+		}
+		else if (i > 0)
+		{
+			game->map[i] = 0;
+			return (free(current_line), close(fd), msg_parse(ERR_VALID_MAP_END));
 		}
 		free(current_line);
 		current_line = get_next_line(fd);

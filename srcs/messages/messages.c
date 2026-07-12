@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 12:08:26 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 10:41:43 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/12 11:06:44 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	msg_parse(t_msg msg_code)
 		ft_putstr_fd("Error, map player invalid\n", 2);
 	else if (msg_code == ERR_VALID_MAP_CLOSED)
 		ft_putstr_fd("Error, map not closed\n", 2);
+	else if (msg_code == ERR_VALID_MAP_END)
+		ft_putstr_fd("Error, map is not at the end\n", 2);
 	else if (msg_code == ERR_DOUBLE_KEY)
 		ft_putstr_fd("Error, double key\n", 2);
 	else if (msg_code == ERR_ELEMENTS_MISSING)

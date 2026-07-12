@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/18 13:23:22 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 10:41:15 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/12 11:06:53 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef enum e_msg
 	ERR_VALID_MAP_CHARS,
 	ERR_VALID_MAP_PLAYER,
 	ERR_VALID_MAP_CLOSED,
+	ERR_VALID_MAP_END,
 	ERR_DOUBLE_KEY,
 	ERR_ELEMENTS_MISSING,
 	ERR_ELEMENTS_INVALID_COLOR,
