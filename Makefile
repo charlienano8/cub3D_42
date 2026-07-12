@@ -83,12 +83,11 @@ OBJS		= $(SRCS:%.c=$(OBJ_DIR)/%.o)
 all: $(NAME)
 
 $(LIBFT):
+	@git submodule update --init --recursive
 	@make -C libft
 
-$(MLX_DIR):
-	@./add_minilibx.sh
-
-$(MLX_LIB): | $(MLX_DIR)
+$(MLX_LIB):
+	@git submodule update --init --recursive
 	@make -C $(MLX_DIR)
 
 $(OBJ_DIR)/%.o: %.c
@@ -110,9 +109,7 @@ clean:
 
 fclean: clean
 	@make fclean -C libft
-	@make clean -C $(MLX_DIR)
 	@rm -f $(NAME)
-	@rm -rf $(MLX_DIR)
 	@printf "$(YELLOW)✓ $(NAME) removed$(RESET)\n"
 
 re: fclean all
