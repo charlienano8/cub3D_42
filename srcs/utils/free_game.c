@@ -18,5 +18,6 @@ void	free_game(t_game *game)
 	free(game->texture_path_so);
 	free(game->texture_path_we);
 	free(game->texture_path_ea);
+	free(game->map_line_len);
 	free_map(game->map);
 }

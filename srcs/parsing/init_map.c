@@ -15,11 +15,16 @@
 int	create_map(t_game *game)
 {
 	char	**map;
+	int		*map_line_len;
 
 	map = malloc(sizeof(char *) * (game->line_map_nb + 1));
 	if (map == NULL)
 		return (msg(ERR_MALLOC));
+	map_line_len = malloc(sizeof(int) * game->line_map_nb);
+	if (map_line_len == NULL)
+		return (free(map), msg(ERR_MALLOC));
 	game->map = map;
+	game->map_line_len = map_line_len;
 	return (0);
 }
 
@@ -37,6 +42,7 @@ static int	store_map_line(char *current_line, t_game *game, int fd, int i)
 		return (1);
 	}
 	game->map[i] = trimed_current_line;
+	game->map_line_len[i] = ft_strlen(trimed_current_line);
 	return (0);
 }
 

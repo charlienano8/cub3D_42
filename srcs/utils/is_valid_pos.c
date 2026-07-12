@@ -17,7 +17,7 @@ int	is_valid_pos(t_game *game, char **map_cpy, int player_x, int player_y)
 	if (player_x < 0
 		|| player_y < 0
 		|| player_y >= game->line_map_nb
-		|| player_x >= (int)ft_strlen(map_cpy[player_y]))
+		|| player_x >= game->map_line_len[player_y])
 		return (-1);
 	if (map_cpy[player_y][player_x] == ' ')
 		return (-1);

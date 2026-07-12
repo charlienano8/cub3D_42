@@ -17,6 +17,7 @@ int	init_game(t_game *game, char *file)
 	int	ret;
 
 	game->map = NULL;
+	game->map_line_len = NULL;
 	game->texture_path_no = NULL;
 	game->texture_path_so = NULL;
 	game->texture_path_we = NULL;
