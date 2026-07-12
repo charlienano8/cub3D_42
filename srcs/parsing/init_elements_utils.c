@@ -23,65 +23,6 @@ static int	store_texture_line(char *current_line, char **path, int i)
 	return (0);
 }
 
-static int	store_color(char *current_line, t_color *colors, int i)
-{
-	int	result;
-	int	count;
-
-	result = 0;
-	count = 0;
-	while (ft_isdigit(current_line[i]))
-	{
-		result = result * 10 + (current_line[i] - '0');
-		i++;
-		count++;
-		if (count > 3)
-			return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	}
-	colors->r = result;
-	if (colors->r < 0 || colors->r > 255)
-		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	if (current_line[i] == ',')
-		i++;
-	else
-		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	result = 0;
-	count = 0;
-	while (ft_isdigit(current_line[i]))
-	{
-		result = result * 10 + (current_line[i] - '0');
-		i++;
-		count++;
-		if (count > 3)
-			return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	}
-	colors->g = result;
-	if (colors->g < 0 || colors->g > 255)
-		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	if (current_line[i] == ',')
-		i++;
-	else
-		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	result = 0;
-	count = 0;
-	while (ft_isdigit(current_line[i]))
-	{
-		result = result * 10 + (current_line[i] - '0');
-		i++;
-		count++;
-		if (count > 3)
-			return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	}
-	colors->b = result;
-	if (colors->b < 0 || colors->b > 255)
-		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	if (current_line[i] == '\n' || current_line[i] == '\0')
-		i++;
-	else
-		return (msg_parse(ERR_ELEMENTS_INVALID_COLOR));
-	return (0);
-}
-
 static int	dispatch_textures(char *current_line, char *elements,
 		char **path)
 {

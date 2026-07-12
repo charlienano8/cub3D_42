@@ -46,6 +46,7 @@ SRCS_MAIN	= main.c \
 SRCS_PARS	= init_map.c \
 			  init_elements.c \
 			  init_elements_utils.c \
+			  store_color.c \
 			  check_elements.c \
 			  check_map_elements.c \
 			  is_map_closed.c \

@@ -94,6 +94,7 @@ int		create_map(t_game *game);
 int		fill_map(t_game *game, char *file);
 int		init_elements(t_game *game, char *file);
 int		dispatch_elements(t_game *game, char *current_line);
+int		store_color(char *current_line, t_color *colors, int i);
 int		check_elements(t_game *game);
 int		is_valid_map_chars(t_game *game);
 int		is_valid_map_player(t_game *game);
