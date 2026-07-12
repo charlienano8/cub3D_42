@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/06 11:08:55 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/10 11:07:39 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/12 08:24:11 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	dispatch_textures(char *current_line, int fd, char *elements,
 	if (ft_strncmp(current_line, elements, ft_strlen(elements)) == 0)
 	{
 		i = 0;
-		while (!ft_isspace(current_line[i]))
+		while (current_line[i] && !ft_isspace(current_line[i]))
 			i++;
 		while (ft_isspace(current_line[i]))
 			i++;
@@ -85,7 +85,7 @@ static int	dispatch_colors(char *current_line, int fd, char *elements,
 	if (ft_strncmp(current_line, elements, ft_strlen(elements)) == 0)
 	{
 		i = 0;
-		while (!ft_isspace(current_line[i]))
+		while (current_line[i] && !ft_isspace(current_line[i]))
 			i++;
 		while (ft_isspace(current_line[i]))
 			i++;
