@@ -31,6 +31,16 @@ static int	init_textures(t_game *game)
 	return (1);
 }
 
+static void	init_keycode(t_game *game)
+{
+	game->key_w = 0;
+	game->key_s = 0;
+	game->key_a = 0;
+	game->key_d = 0;
+	game->key_right = 0;
+	game->key_left = 0;
+}
+
 int	main(int ac, char **av)
 {
 	t_game	game;
@@ -56,8 +66,10 @@ int	main(int ac, char **av)
 			&game.img.endian);
 	if (!init_textures(&game))
 		return (msg(ERR_XPM_TEXTURES));
+	init_keycode(&game);
 	mlx_hook(game.win, 17, 0, (int (*)())(void *)close_game, &game);
 	mlx_hook(game.win, 2, 1L << 0, (int (*)())(void *)handle_keypress, &game);
+	mlx_hook(game.win, 3, 1L << 1, (int (*)())(void *)handle_keyrelease, &game);
 	mlx_loop_hook(game.mlx, (int (*)())(void *)render_next_frame, &game);
 	mlx_loop(game.mlx);
 	free_game(&game);

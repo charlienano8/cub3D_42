@@ -24,7 +24,18 @@ void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 
 int	render_next_frame(t_game *game)
 {
+	struct timeval	start;
+	struct timeval	end;
+	long			elapsed;
+
+	gettimeofday(&start, NULL);
+	update_player_position(game);
 	raycasting_loop(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.img_ptr, 0, 0);
+	gettimeofday(&end, NULL);
+	elapsed = (end.tv_sec - start.tv_sec) * 1000000
+		+ (end.tv_usec - start.tv_usec);
+	if (elapsed < 16666)
+		usleep(16666 - elapsed);
 	return (0);
 }

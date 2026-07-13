@@ -61,6 +61,49 @@ void	rotate_player(t_game *game, double angle)
 	game->plane_y = old_plane_x * sin(angle) + game->plane_y * cos(angle);
 }
 
+void	update_player_position(t_game *game)
+{
+	double	move_x;
+	double	move_y;
+	double	rot_speed;
+	double	len;
+
+	move_x = 0;
+	move_y = 0;
+	rot_speed = 0.04;
+	if (game->key_right)
+		rotate_player(game, rot_speed);
+	if (game->key_left)
+		rotate_player(game, -rot_speed);
+	if (game->key_w)
+	{
+		move_x += game->dir_x;
+		move_y += game->dir_y;
+	}
+	if (game->key_s)
+	{
+		move_x -= game->dir_x;
+		move_y -= game->dir_y;
+	}
+	if (game->key_d)
+	{
+		move_x -= game->dir_y;
+		move_y += game->dir_x;
+	}
+	if (game->key_a)
+	{
+		move_x += game->dir_y;
+		move_y -= game->dir_x;
+	}
+	if (move_x != 0 || move_y != 0)
+	{
+		len = sqrt(move_x * move_x + move_y * move_y);
+		move_x /= len;
+		move_y /= len;
+		move_player(game, move_x, move_y);
+	}
+}
+
 int	handle_keypress(int keycode, void *param)
 {
 	t_game	*game;
@@ -69,16 +112,36 @@ int	handle_keypress(int keycode, void *param)
 	if (keycode == 65307)
 		close_game(game);
 	if (keycode == 119)
-		move_player(game, game->dir_x, game->dir_y);
+		game->key_w = 1;
 	if (keycode == 115)
-		move_player(game, -game->dir_x, -game->dir_y);
+		game->key_s = 1;
 	if (keycode == 97)
-		move_player(game, game->dir_y, -game->dir_x);
+		game->key_a = 1;
 	if (keycode == 100)
-		move_player(game, -game->dir_y, game->dir_x);
+		game->key_d = 1;
 	if (keycode == 65363)
-		rotate_player(game, 0.05);
+		game->key_right = 1;
 	if (keycode == 65361)
-		rotate_player(game, -0.05);
+		game->key_left = 1;
+	return (0);
+}
+
+int	handle_keyrelease(int keycode, void *param)
+{
+	t_game	*game;
+
+	game = (t_game *)param;
+	if (keycode == 119)
+		game->key_w = 0;
+	if (keycode == 115)
+		game->key_s = 0;
+	if (keycode == 97)
+		game->key_a = 0;
+	if (keycode == 100)
+		game->key_d = 0;
+	if (keycode == 65363)
+		game->key_right = 0;
+	if (keycode == 65361)
+		game->key_left = 0;
 	return (0);
 }

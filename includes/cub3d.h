@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <math.h>
+# include <sys/time.h>
 
 /* Project Headers */
 # include "libft.h"
@@ -61,6 +62,12 @@ typedef struct s_game
 	double	plane_x;
 	double	plane_y;
 	t_img	img;
+	int		key_w;
+	int		key_s;
+	int		key_a;
+	int		key_d;
+	int		key_left;
+	int		key_right;
 	char	*texture_path_no;
 	char	*texture_path_so;
 	char	*texture_path_we;
@@ -106,7 +113,9 @@ int		init_game(t_game *game, char *file);
 void	init_cameras(t_game *game);
 int		close_game(t_game *game);
 int		handle_keypress(int keycode, void *param);
+int		handle_keyrelease(int keycode, void *param);
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color);
+void	update_player_position(t_game *game);
 int		render_next_frame(t_game *game);
 int		raycasting_loop(t_game *game);
 void	draw_wall_column(int x, t_game *game, t_ray *ray);
