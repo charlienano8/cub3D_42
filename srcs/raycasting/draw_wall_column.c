@@ -23,6 +23,8 @@ static void	calc_wall_limits(t_ray *ray, int *start, int *end, int *line_h)
 	if (perp_dist <= 0)
 		perp_dist = 0.01;
 	*line_h = (int)(SCREEN_HEIGHT / perp_dist);
+	if (*line_h < 1)
+		*line_h = 1;
 	*start = -(*line_h) / 2 + SCREEN_HEIGHT / 2;
 	if (*start < 0)
 		*start = 0;
