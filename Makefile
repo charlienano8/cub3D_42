@@ -110,7 +110,6 @@ clean:
 fclean: clean
 	@make fclean -C libft
 	@rm -f $(NAME)
-	@rm -rf $(MLX_DIR)
 	@printf "$(YELLOW)✓ $(NAME) removed$(RESET)\n"
 
 re: fclean all
