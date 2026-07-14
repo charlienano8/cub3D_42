@@ -52,5 +52,7 @@ int	msg_parse(t_msg msg_code)
 		ft_putstr_fd("Error, invalid color value\n", 2);
 	else if (msg_code == ERR_ELEMENTS_INVALID_TEXTURE_PATH)
 		ft_putstr_fd("Error, invalid texture path\n", 2);
+	else if (msg_code == ERR_UNKNOWN_DIRECTIVE)
+		ft_putstr_fd("Error, unknown directive\n", 2);
 	return (1);
 }

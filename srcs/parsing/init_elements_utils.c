@@ -23,12 +23,18 @@ static int	store_texture_line(char *current_line, char **path, int i)
 	return (0);
 }
 
+static int	is_element_prefix(char *current_line, char *elements)
+{
+	return (ft_strncmp(current_line, elements, ft_strlen(elements)) == 0
+		&& ft_isspace(current_line[ft_strlen(elements)]));
+}
+
 static int	dispatch_textures(char *current_line, char *elements,
 		char **path)
 {
 	int	i;
 
-	if (ft_strncmp(current_line, elements, ft_strlen(elements)) == 0)
+	if (is_element_prefix(current_line, elements))
 	{
 		i = 0;
 		while (current_line[i] && !ft_isspace(current_line[i]))
@@ -52,7 +58,7 @@ static int	dispatch_colors(char *current_line, char *elements,
 {
 	int	i;
 
-	if (ft_strncmp(current_line, elements, ft_strlen(elements)) == 0)
+	if (is_element_prefix(current_line, elements))
 	{
 		i = 0;
 		while (current_line[i] && !ft_isspace(current_line[i]))
@@ -69,6 +75,14 @@ static int	dispatch_colors(char *current_line, char *elements,
 
 int	dispatch_elements(t_game *game, char *current_line)
 {
+	if (current_line[0] != '\n'
+		&& !is_element_prefix(current_line, "NO")
+		&& !is_element_prefix(current_line, "SO")
+		&& !is_element_prefix(current_line, "WE")
+		&& !is_element_prefix(current_line, "EA")
+		&& !is_element_prefix(current_line, "F")
+		&& !is_element_prefix(current_line, "C"))
+		return (msg_parse(ERR_UNKNOWN_DIRECTIVE));
 	if (dispatch_textures(current_line, "NO", &game->texture_path_no))
 		return (1);
 	if (dispatch_textures(current_line, "SO", &game->texture_path_so))
