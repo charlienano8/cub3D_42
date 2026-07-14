@@ -27,6 +27,8 @@ static int	parse_component(char *current_line, int *i, int *value)
 		if (count > 3)
 			return (1);
 	}
+	if (count == 0)
+		return (1);
 	if (result < 0 || result > 255)
 		return (1);
 	*value = result;

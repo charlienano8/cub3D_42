@@ -12,21 +12,35 @@
 
 #include "cub3d.h"
 
+static int	starts_with_ignore_case(char *line, char *prefix)
+{
+	int	i;
+
+	i = 0;
+	while (prefix[i])
+	{
+		if (ft_toupper(line[i]) != ft_toupper(prefix[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	is_map_line(char *line)
 {
-	if ((ft_strncmp(line, "NO", 2)) == 0)
+	if (starts_with_ignore_case(line, "NO"))
 		return (0);
-	if ((ft_strncmp(line, "SO", 2)) == 0)
+	if (starts_with_ignore_case(line, "SO"))
 		return (0);
-	if ((ft_strncmp(line, "WE", 2)) == 0)
+	if (starts_with_ignore_case(line, "WE"))
 		return (0);
-	if ((ft_strncmp(line, "EA", 2)) == 0)
+	if (starts_with_ignore_case(line, "EA"))
 		return (0);
-	if ((ft_strncmp(line, "F", 1)) == 0)
+	if (starts_with_ignore_case(line, "F"))
 		return (0);
-	if ((ft_strncmp(line, "C", 1)) == 0)
+	if (starts_with_ignore_case(line, "C"))
 		return (0);
-	if ((ft_strncmp(line, "\n", 1)) == 0)
+	if (line[0] == '\n')
 		return (0);
 	return (1);
 }
