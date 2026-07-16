@@ -42,9 +42,11 @@ void	draw_wall_column(int x, t_game *game, t_ray *ray)
 	double	wall_x;
 
 	calc_wall_limits(ray, &start, &end, &line_h);
-	wall_x = game->player_y + (ray->side_dist_x - ray->delta_dist_x) * ray->ray_dir_y;
+	wall_x = game->player_y + (ray->side_dist_x - ray->delta_dist_x)
+		* ray->ray_dir_y;
 	if (ray->side == 1)
-		wall_x = game->player_x + (ray->side_dist_y - ray->delta_dist_y) * ray->ray_dir_x;
+		wall_x = game->player_x + (ray->side_dist_y - ray->delta_dist_y)
+			* ray->ray_dir_x;
 	wall_x -= floor(wall_x);
 	y = -1;
 	while (++y < SCREEN_HEIGHT)

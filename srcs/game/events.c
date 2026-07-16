@@ -61,49 +61,6 @@ void	rotate_player(t_game *game, double angle)
 	game->plane_y = old_plane_x * sin(angle) + game->plane_y * cos(angle);
 }
 
-void	update_player_position(t_game *game)
-{
-	double	move_x;
-	double	move_y;
-	double	rot_speed;
-	double	len;
-
-	move_x = 0;
-	move_y = 0;
-	rot_speed = 0.04;
-	if (game->key_right)
-		rotate_player(game, rot_speed);
-	if (game->key_left)
-		rotate_player(game, -rot_speed);
-	if (game->key_w)
-	{
-		move_x += game->dir_x;
-		move_y += game->dir_y;
-	}
-	if (game->key_s)
-	{
-		move_x -= game->dir_x;
-		move_y -= game->dir_y;
-	}
-	if (game->key_d)
-	{
-		move_x -= game->dir_y;
-		move_y += game->dir_x;
-	}
-	if (game->key_a)
-	{
-		move_x += game->dir_y;
-		move_y -= game->dir_x;
-	}
-	if (move_x != 0 || move_y != 0)
-	{
-		len = sqrt(move_x * move_x + move_y * move_y);
-		move_x /= len;
-		move_y /= len;
-		move_player(game, move_x, move_y);
-	}
-}
-
 int	handle_keypress(int keycode, void *param)
 {
 	t_game	*game;

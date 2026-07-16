@@ -111,6 +111,7 @@ int		check_map(t_game *game);
 /* Game */
 int		init_game(t_game *game, char *file);
 void	init_cameras(t_game *game);
+int		init_textures(t_game *game);
 int		close_game(t_game *game);
 int		handle_keypress(int keycode, void *param);
 int		handle_keyrelease(int keycode, void *param);
@@ -119,6 +120,8 @@ void	update_player_position(t_game *game);
 int		render_next_frame(t_game *game);
 int		raycasting_loop(t_game *game);
 void	draw_wall_column(int x, t_game *game, t_ray *ray);
+void	move_player(t_game *game, double dir_x, double dir_y);
+void	rotate_player(t_game *game, double angle);
 
 /* Utils */
 int		is_cub_extension(char *str);

@@ -64,6 +64,8 @@ SRCS_UTILS	= is_cub_extension.c \
 
 SRCS_GAME 	= init_game.c \
 			  init_cameras.c \
+			  init_textures.c \
+			  update_player_position.c \
 			  draw.c \
 			  events.c
 
