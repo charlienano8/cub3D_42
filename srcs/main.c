@@ -22,29 +22,34 @@ static void	init_keycode(t_game *game)
 	game->key_left = 0;
 }
 
+int	init_mlx_and_window(t_game *game)
+{
+	game->mlx = mlx_init();
+	if (!game->mlx)
+		return (0);
+	game->win = mlx_new_window(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT,
+			"cub3D by aborda and makui");
+	if (!game->win)
+		return (0);
+	game->img.img_ptr = mlx_new_image(game->mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
+	if (!game->img.img_ptr)
+		return (0);
+	game->img.addr = mlx_get_data_addr(game->img.img_ptr,
+			&game->img.bits_per_pixel, &game->img.line_length,
+			&game->img.endian);
+	return (1);
+}
+
 int	main(int ac, char **av)
 {
 	t_game	game;
-	int		ret;
 
 	if (ac != 2)
 		return (msg(ERR_AV));
-	ret = parsing(&game, av);
-	if (ret != 0)
+	if (0 != parsing(&game, av))
 		return (1);
-	game.mlx = mlx_init();
-	if (!game.mlx)
+	if (!init_mlx_and_window(&game))
 		return (msg(ERR_MLX));
-	game.win = mlx_new_window(game.mlx, SCREEN_WIDTH, SCREEN_HEIGHT,
-			"cub3D by aborda and makui");
-	if (!game.win)
-		return (msg(ERR_MLX));
-	game.img.img_ptr = mlx_new_image(game.mlx, SCREEN_WIDTH, SCREEN_HEIGHT);
-	if (!game.img.img_ptr)
-		return (msg(ERR_MLX));
-	game.img.addr = mlx_get_data_addr(game.img.img_ptr,
-			&game.img.bits_per_pixel, &game.img.line_length,
-			&game.img.endian);
 	if (!init_textures(&game))
 		return (msg(ERR_XPM_TEXTURES));
 	init_keycode(&game);
