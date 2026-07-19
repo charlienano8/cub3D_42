@@ -6,7 +6,7 @@
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 10:44:11 by makui             #+#    #+#             */
-/*   Updated: 2026/07/12 11:54:45 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/19 10:24:57 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ int		is_map_line(char *line);
 int		line_map_count(char *file);
 void	free_map(char **map);
 void	free_game(t_game *game);
+void	free_mlx(t_game *game);
 int		rgb_to_int(t_color color);
 int		get_wall_pixel(t_game *game, t_ray *ray, int tex_y, double wall_x);
 int		is_valid_pos(t_game *game, char **map_cpy, int player_x, int player_y);

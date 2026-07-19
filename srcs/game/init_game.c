@@ -6,7 +6,7 @@
 /*   By: aborda <aborda@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 17:09:08 by aborda            #+#    #+#             */
-/*   Updated: 2026/07/08 15:08:32 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/19 10:27:23 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,7 @@ int	init_game(t_game *game, char *file)
 {
 	int	ret;
 
-	game->map = NULL;
-	game->map_line_len = NULL;
-	game->texture_path_no = NULL;
-	game->texture_path_so = NULL;
-	game->texture_path_we = NULL;
-	game->texture_path_ea = NULL;
+	ft_bzero(game, sizeof(t_game));
 	game->color_floor.r = -1;
 	game->color_ceil.r = -1;
 	game->line_map_nb = line_map_count(file);

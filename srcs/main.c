@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main_antoine.c                                     :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: makui <makui@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/09 11:04:49 by makui             #+#    #+#             */
-/*   Updated: 2026/07/09 08:23:34 by aborda           ###   ########.fr       */
+/*   Updated: 2026/07/19 10:27:46 by aborda           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int	main(int ac, char **av)
 	if (0 != parsing(&game, av))
 		return (1);
 	if (!init_mlx_and_window(&game))
-		return (msg(ERR_MLX));
+		return (free_mlx(&game), free_game(&game), msg(ERR_MLX));
 	if (!init_textures(&game))
-		return (msg(ERR_XPM_TEXTURES));
+		return (free_mlx(&game), free_game(&game), msg(ERR_XPM_TEXTURES));
 	init_keycode(&game);
 	mlx_hook(game.win, 17, 0, (int (*)())(void *)close_game, &game);
 	mlx_hook(game.win, 2, 1L << 0, (int (*)())(void *)handle_keypress, &game);
