@@ -6,7 +6,7 @@
 #    By: aborda <aborda@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/17 16:43:56 by aborda            #+#    #+#              #
-#    Updated: 2026/07/12 20:50:00 by aborda           ###   ########.fr        #
+#    Updated: 2026/07/19 10:04:20 by aborda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CYAN		= \033[0;36m
 RESET		= \033[0m
 
 # Project
-NAME		= cub3d
+NAME		= cub3D
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 INCLUDES	= -Iincludes -I./libft/includes -I$(MLX_DIR)
